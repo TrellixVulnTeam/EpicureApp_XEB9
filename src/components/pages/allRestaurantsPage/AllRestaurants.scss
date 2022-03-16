@@ -20,9 +20,13 @@
   color: black;
 }
 
-@media screen and (min-width: 800px) {
+.restaurants-grid-item {
+  margin: 30px;
+}
+@media screen and (min-width: 1200px) {
   .restaurants-grid {
     grid-template-columns: 33% 33% 33%;
+    margin: 0 100px;
   }
   .categories-div {
     justify-content: center;
