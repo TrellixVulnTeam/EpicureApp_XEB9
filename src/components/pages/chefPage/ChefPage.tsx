@@ -14,7 +14,7 @@ const ChefPage = () => {
       <Header />
       <h1>{params.chefName}</h1>
       <img src={chefDetails[0].chefImage} alt="chef" className="chef-img"/>
-      <p>{chefDetails[0].chefDescription}</p>
+      <p className="chef-description">{chefDetails[0].chefDescription}</p>
       {chefDetails.map((chef) => {
         return (
           <Link

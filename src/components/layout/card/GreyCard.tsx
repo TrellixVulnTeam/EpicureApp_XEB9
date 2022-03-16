@@ -5,7 +5,7 @@ import React from "react";
 const GreyCard: React.FC = (props) => {
     return (
         <Fragment>
-            <div className="grey-card grey">{props.children}</div>
+            <div className="grey-card" id="grey-card">{props.children}</div>
         </Fragment>
     )
 }

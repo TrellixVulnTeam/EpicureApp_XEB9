@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import Chef from "../../../interfaces/Chef";
 import "./HomePage.scss";
-import ChefCard from "../../layout/card/ChefCard";
 import { Link } from "react-router-dom";
 
 interface ChefProps {
@@ -10,21 +9,13 @@ interface ChefProps {
 
 const ChefItem: React.FC<Chef> = ({
   key,
-  chefName,
-  chefImage,
-  chefDescription,
   restaurantName,
   restaurantImage,
 }: Chef) => {
   return (
-    <ChefCard
-      key={key}
-      title={chefName}
-      detail={chefDescription}
-      restaurantImg={restaurantImage}
-      restaurantName={restaurantName}
-      img={chefImage}
-    ></ChefCard>
+    <div className="chef-restaurant-item">
+    <img src={restaurantImage} alt="img" className="chef-restaurant-img" /> <h3>{restaurantName}</h3>
+    </div>
   );
 };
 

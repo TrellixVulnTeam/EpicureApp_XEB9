@@ -1,19 +1,27 @@
+$small-size: 10px;
+$medium-size: 30px;
+
+@mixin clear-btn {
+  cursor: pointer;
+  background-color: transparent;
+}
+
 .mobile-top-nav {
   display: flex;
   justify-content: space-between;
-  margin: 5px;
+  margin: 1px;
   padding-top: 5px;
   .right-icons img {
-    margin: 5px 10px;
+    margin: 5px $small-size;
   }
 }
 
 .desktop-top-nav {
   display: none;
-  height: 30px;
-  padding: 0 80px 0 30px;
+  height: $medium-size;
+  padding: 0 80px 0 $medium-size;
   .right-nav img {
-    margin: 5px 10px;
+    margin: 5px $small-size;
   }
   .left-nav {
     display: flex;
@@ -22,7 +30,7 @@
 
 nav {
   display: flex;
-  margin: 10px 20px;
+  margin: $small-size 20px;
   justify-content: space-between;
 }
 
@@ -33,10 +41,9 @@ nav {
 
 .close-nav-bar {
   font-size: 25px;
-  cursor: pointer;
   border: none;
-  background-color: transparent;
-  margin: 10px 320px 0 0;
+  margin: $small-size 320px 0 0;
+  @include clear-btn;
 }
 
 .hamburger {
@@ -58,7 +65,7 @@ nav {
   top: 0;
   .hamburger-nav-list {
     font-size: 20px;
-    margin: 30px;
+    margin: $medium-size;
   }
   .hamburger-nav-list::marker {
     color: white;
