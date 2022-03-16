@@ -1,0 +1,77 @@
+$sand-80: rgba(232, 196, 122, 0.8);
+$medium-space: 1.33px;
+$small-space: 0.93px;
+
+@mixin letter-spacing($px) {
+  letter-spacing: $px;
+}
+
+.nav-btn {
+  background-color: $sand-80;  
+  color: black;  
+  width: 126px;
+  height: 15px;
+  margin: 0 17px 0 0;
+  padding: 15px;
+  border: none;
+  @include letter-spacing($small-space);
+  font-weight: bold;  
+  text-transform: uppercase;  
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.get-app-btn {
+  background-color: transparent;    
+  display: flex;
+  width: 130px; 
+  height: 38px;
+  border-radius: 6.7px;
+  border: 0.5px solid black;
+  font-size: 9.2px;
+  margin: 7px;
+  cursor: pointer;
+}
+
+.app-name {
+  font-size: 11px;
+  margin: 0;
+}
+
+.app-icon {
+  bottom: 10px;
+  right: 3px;
+  position: relative;
+}
+
+.app-content {
+  padding-top: 5px;
+}
+
+.active-link {
+  font-weight: bold;
+}
+
+.close-nav-bar {
+  font-size: 25px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  margin: 10px 320px 0 0;
+}
+
+.footer-li {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+  top: 100%;
+  position: relative;
+  @include letter-spacing($medium-space);
+}
+
+@media screen and (min-width: 800px) {
+  .footer-li {
+    top: 0;
+    margin: 10px;
+  }
+}

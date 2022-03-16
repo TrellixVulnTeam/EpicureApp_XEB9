@@ -1,0 +1,39 @@
+.about-logo {
+    margin: 0 auto;
+}
+
+.about-title {
+    padding-top: 10px;
+}
+
+.about-description {
+    font-size: 14px;
+    padding: 0 22px;
+}
+
+@media screen and (min-width: 500px) {
+    .about-container {
+        padding: 10px 150px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .about-container {
+        display: flex;
+        padding: 10px 220px;
+        text-align: left;
+    }
+    .about-title {
+        font-size: 30px;
+        margin-left: 240px;
+        text-align: left;
+    }
+    .about-description {
+        font-size: 22px;
+        width: 440px;
+    }
+    .about-logo {
+        width: 178px;
+        height: 166px;
+    }
+}

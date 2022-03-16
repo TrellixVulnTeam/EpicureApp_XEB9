@@ -1,0 +1,30 @@
+.restaurants-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.categories-div {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.to-restaurant-btn {
+  text-decoration: none;
+  color: black;
+  margin: 0 auto;
+}
+
+.to-restaurant {
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (min-width: 800px) {
+  .restaurants-grid {
+    grid-template-columns: 33% 33% 33%;
+  }
+  .categories-div {
+    justify-content: center;
+  }
+}
