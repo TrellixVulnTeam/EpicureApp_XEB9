@@ -16,15 +16,14 @@ $small-size: 10px;
 
 @media screen and (min-width: 500px) {
     .about-container {
-        padding: $small-size 150px;
+        padding: $small-size 80px;
     }
 }
 
 @media screen and (min-width: 800px) {
     .about-container {
         display: flex;
-        padding: $small-size 240px;
-        text-align: left;
+        padding: $small-size 140px;
     }
     .about-title {
         font-size: 30px;
@@ -34,9 +33,17 @@ $small-size: 10px;
     .about-description {
         font-size: 22px;
         width: 440px;
+        padding: 0 19px;
     }
     .about-logo {
         width: 178px;
         height: 166px;
     }
 }
+
+@media screen and (min-width: 1000px) {
+    .about-container {
+        padding: $small-size 240px;
+        text-align: left;
+    }
+} 

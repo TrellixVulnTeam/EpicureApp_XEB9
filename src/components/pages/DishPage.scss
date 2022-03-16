@@ -56,12 +56,12 @@
   position: relative;
   color: white;
   font-size: 30px;
-	cursor: pointer;
+  cursor: pointer;
   background: none;
   border: none;
 }
 
-.dish-container  {
+.dish-container {
   display: none;
 }
 
@@ -76,14 +76,13 @@
 @media screen and (min-width: 400px) {
   .wrapper-dish-page {
     margin-left: 27%;
+  }
 }
-}
-
 
 @media screen and (min-width: 530px) {
   .wrapper-dish-page {
     margin-left: 30%;
-}
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -93,14 +92,14 @@
   }
   .dish-container {
     z-index: -1;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     display: grid;
   }
   .dish {
     border: 1px solid black;
     width: 608px;
     height: 1081px;
-    margin: 0 auto;   
+    margin: 0 auto;
     position: absolute;
     top: 80px;
     left: 0;
