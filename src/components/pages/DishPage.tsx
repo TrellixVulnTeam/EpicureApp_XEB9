@@ -58,6 +58,7 @@ const DishPage = (props: { dish: string }) => {
             </div>
           </div>
         </div>
+        <br />
         {inputsContainer("Choose a side")}
         <p>
           {dishDetails.side.map((side) => (

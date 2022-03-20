@@ -18,7 +18,7 @@
 }
 
 .dish-page-description {
-  padding: 0 120px;
+  padding: 0 50px;
 }
 
 .add-to-bag-btn {
@@ -77,6 +77,9 @@
   .wrapper-dish-page {
     margin-left: 27%;
   }
+  .dish-page-description {
+    padding: 0 120px;
+  }
 }
 
 @media screen and (min-width: 530px) {
@@ -128,5 +131,8 @@
   }
   .dish-page-icon {
     display: none;
+  }
+  .dish-page-description {
+    padding: 0 200px;
   }
 }

@@ -3,7 +3,7 @@ import './Input.scss';
 
 const Input: React.FC<{content: string, type:string, placeholder:string}> = (props) => {
     const [enteredInput, setEnteredInput]= useState('');
-    const [notRadioOrCheckbox, setNotRadioOrCheckbox] = useState(props.type != 'radio' && props.type !== 'checkbox');
+    const [notRadioOrCheckbox, setNotRadioOrCheckbox] = useState(props.type !== 'radio' && props.type !== 'checkbox');
     const changeInputHandler= (event:React.FormEvent<HTMLInputElement>) => {
         event.preventDefault();
         setEnteredInput(event.currentTarget.value);
