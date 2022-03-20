@@ -33,6 +33,6 @@ const dummy = [
     signatureDescription:
       "Basil dough, cashew butter, demi-glace, bison & radish",
     price: 45,
-    side: ["White Bread", "Sticky Rice"],
+    side: ["White Bread", "Sticky Ric"],
   },
 ];
