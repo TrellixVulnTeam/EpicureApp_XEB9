@@ -13,6 +13,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ChefItem from "./ChefItem";
 
 const HomePage = () => {
   const [dataResRestaurants, setDataResRestaurants] = useState([]);
@@ -57,6 +58,7 @@ const HomePage = () => {
     fetchChefsData();
   }, []);
 
+
   return (
     <Fragment>
       <Header />
@@ -80,7 +82,7 @@ const HomePage = () => {
         <Icons />
       </div>
       <p className="sub-title">CHEF OF THE WEEK :</p>
-      <Chefs chefs={dataResChefs} />
+      <ChefItem chef={dataResChefs} />
       <About />
       <Footer />
     </Fragment>

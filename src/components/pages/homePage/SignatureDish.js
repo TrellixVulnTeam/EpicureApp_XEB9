@@ -11,7 +11,7 @@ const SignatureDish = ({ dishes }) => {
     responsive: [
       { breakpoint: 1300, settings: { slidesToShow: 2 } },
       { breakpoint: 1050, settings: { slidesToShow: 1.1 } },
-    ]
+    ],
   };
   const smallerArr = dishes.slice(0, 3);
   return (
