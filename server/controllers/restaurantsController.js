@@ -1,0 +1,1 @@
+//this.router.get('/', this.getAll.bind(this));
