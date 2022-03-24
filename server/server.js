@@ -1,9 +1,8 @@
-import restaurants from "./api/RestaurantData.js";
-import dishes from "./api/DishData.js";
-import chefs from "./api/ChefData.js";
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+
+const express= require('express')
+const cors= require('cors')
+const dotenv= require('dotenv')
+const restaurantsRoute= require('./routes/restaurantsRoute.cjs')
 
 dotenv.config();
 
@@ -11,17 +10,9 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(cors());
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
-app.get("/restaurants", (req, res) => {
-  res.json({ data: restaurants });
-});
-
-app.get("/dishes", (req, res) => {
-  res.json({ data: dishes });
-});
-
-app.get("/chefs", (req, res) => {
-  res.json({ data: chefs });
-});
-
+app.use('/restaurants', restaurantsRoute)
 app.listen(port, () => console.log(`server is listening on: ${port}`));
+

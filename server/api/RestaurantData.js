@@ -18,7 +18,7 @@ const restaurantImages= {
 
 const restaurants = [
   {
-    key: "1",
+    key: 1,
     restaurantName: "Claro",
     chefName: "Ran Shmueli",
     restaurantImage: restaurantImages.claro,
@@ -26,7 +26,7 @@ const restaurants = [
     bigImage: restaurantImages.bigClaro,
   },
   {
-    key: "2",
+    key: 2,
     restaurantName: "Lumina",
     chefName: "Meir Adoni",    
     restaurantImage: restaurantImages.lumina,
@@ -34,7 +34,7 @@ const restaurants = [
     bigImage: restaurantImages.bigLumina,
   },
   {
-    key: "3",
+    key: 3,
     restaurantName: "Tiger Lilly",
     chefName: "Yanir Green",
     restaurantImage: restaurantImages.tiger,
@@ -42,7 +42,7 @@ const restaurants = [
     bigImage: restaurantImages.bigTiger,
   },
   {
-    key: "4",
+    key: 4,
     restaurantName: "Onza",
     chefName: "Yossi Shitrit",
     restaurantImage: restaurantImages.onza,
@@ -51,7 +51,7 @@ const restaurants = [
 
   },
   {
-    key: "5",
+    key: 5,
     restaurantName: "Kitchen Market",
     chefName: "Yossi Shitrit",
     restaurantImage: restaurantImages.kitchen,
@@ -59,7 +59,7 @@ const restaurants = [
     bigImage: restaurantImages.bigMashya,
   },
   {
-    key: "6",
+    key: 6,
     restaurantName: "Mashya",
     chefName: "Yossi Shitrit",
     restaurantImage: restaurantImages.mashya,
