@@ -19,4 +19,20 @@ const createRestaurantHandler = async (data) => {
   catch(err) {return false}
 }
 
-module.exports= {getRestaurantsHandler, getRestaurantByIdHandler, createRestaurantHandler}
+const deleteRestaurantHandler = async (id) => {
+  try {
+      await restaurant.findByIdAndDelete(id)
+      return true
+  }
+  catch(err) {return false}
+}
+
+const updateRestaurantHandler = async (id, document) => {
+  try {
+      await restaurant.findByIdAndUpdate(id, {...document})
+      return true
+  }
+  catch(err) {return false}
+}
+
+module.exports= {getRestaurantsHandler, getRestaurantByIdHandler, createRestaurantHandler, deleteRestaurantHandler, updateRestaurantHandler}

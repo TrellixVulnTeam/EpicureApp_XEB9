@@ -19,4 +19,20 @@ const createDishHandler = async (data) => {
   catch(err) {return false}
 }
 
-module.exports= {getDishesHandler, getDishByIdHandler, createDishHandler}
+const deleteDishHandler = async (id) => {
+    try {
+        await dish.findByIdAndDelete(id)
+        return true
+    }
+    catch(err) {return false}
+}
+
+const updateDishHandler = async (id, document) => {
+    try {
+        await dish.findByIdAndUpdate(id, {...document})
+        return true
+    }
+    catch(err) {return false}
+}
+
+module.exports= {getDishesHandler, getDishByIdHandler, createDishHandler, deleteDishHandler, updateDishHandler}

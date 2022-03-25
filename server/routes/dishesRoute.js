@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const getDishesController = require('../controllers/dishesController.js')
+const getDishesController = require("../controllers/dishesController.js");
 
-router.get('/', getDishesController.getDishes)
+router.get("/", getDishesController.getDishes);
 
-router.get('/:id', getDishesController.getDishById)
+router.get("/:id", getDishesController.getDishById);
 
-router.post('/', getDishesController.createDish)
+router.post("/", getDishesController.createDish);
 
-// router.delete('/:id', restaurantsController.deleteRestaurant())
+router.delete("/:id", getDishesController.deleteDish);
 
-// router.patch('/', restaurantsController.updateRestaurant())
+router.patch("/", getDishesController.updateDish);
 
-module.exports= router
+module.exports = router;

@@ -8,8 +8,8 @@ router.get('/:id', getChefsController.getChefById)
 
 router.post('/', getChefsController.createChef)
 
-// router.delete('/:id', getChefsController.deleteRestaurant())
+router.delete('/:id', getChefsController.deleteChef)
 
-// router.patch('/', getChefsController.updateRestaurant())
+router.patch('/', getChefsController.updateChef)
 
 module.exports= router

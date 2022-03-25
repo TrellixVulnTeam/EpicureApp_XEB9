@@ -1,16 +1,41 @@
 const mongoose = require('mongoose')
+const chef = require('./models/chef')
+const dish = require('./models/dish')
+const restaurant = require('./models/restaurant')
 
-const connection = mongoose.connect('mongodb+srv://yardents:245123yarden@yarden.hvyfy.mongodb.net/epicure?retryWrites=true&w=majority', () => {
+
+const dbInit = async () => {
+    const chefCount = await chef.countDocuments()
+    const dishCount = await dish.countDocuments()
+    const restaurantCount = await restaurant.countDocuments()
+
+    if(chefCount === 0) {
+        chef.insertMany([
+            {
+                
+            }
+        ], () => console.log("chefs initialized successfuly"))
+    }
+    if(dishCount === 0) {
+        dish.insertMany([
+            {
+                
+            }
+        ], () => console.log("dishes initialized successfuly"))
+    }
+    if(restaurantCount === 0) {
+        restaurant.insertMany([
+            {
+                
+            }
+        ], () => console.log("restaurants initialized successfuly"))
+    }
+ }
+
+const connection = mongoose.connect(process.env.DB_HOST, () => {
     console.log("db connected successfuly.")
+    dbInit()
 })
-
-mongoose.chefs.insert(
-    [
-      { chefName: "11", chefDescription: "pencil", chefImage: "50"},
-      { chefName: "pen", chefDescription: "20", chefImage:"20" },
-      { chefName: "eraser", chefDescription: "25", chefImage: "20"}
-    ]
- )
 
 
 module.exports = connection

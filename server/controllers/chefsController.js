@@ -1,4 +1,4 @@
-const {getChefsHandler,getChefByIdHandler, createChefHandler} = require('../db/services/chefsHandler.cjs')
+const {getChefsHandler,getChefByIdHandler, createChefHandler, deleteChefHandler, updateChefHandler} = require('../db/services/chefsHandler.cjs')
 
 const getChefs = async (req, res) => {
     const result = await getChefsHandler()
@@ -20,4 +20,16 @@ if(result) return res.status(200).send("chef created successfuly")
 return res.status(500).send('Internal error.')
 }
 
-module.exports= {getChefs, getChefById, createChef}
+const deleteChef = async (req,res) => {
+    const result = await deleteChefHandler(req.params.id)
+    if(result) return res.status(200).send("chef deleted successfuly")
+    return res.status(500).send('Internal error.')
+}
+
+const updateChef = async (req,res) => {
+    const result = await updateChefHandler(req.params.id, req.body.document)
+    if(result) return res.status(200).send("chef updated successfuly")
+    return res.status(500).send('Internal error.')
+}
+
+module.exports= {getChefs, getChefById, createChef, deleteChef, updateChef}

@@ -19,4 +19,20 @@ const createChefHandler = async (data) => {
   catch(err) {return false}
 }
 
-module.exports= {getChefsHandler, getChefByIdHandler, createChefHandler}
+const deleteChefHandler = async (id) => {
+    try {
+        await chef.findByIdAndDelete(id)
+        return true
+    }
+    catch(err) {return false}
+}
+
+const updateChefHandler = async (id, document) => {
+    try {
+        await chef.findByIdAndUpdate(id, {...document})
+        return true
+    }
+    catch(err) {return false}
+}
+
+module.exports= {getChefsHandler, getChefByIdHandler, createChefHandler, deleteChefHandler, updateChefHandler}
