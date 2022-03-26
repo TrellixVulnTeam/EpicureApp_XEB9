@@ -1,34 +1,51 @@
 import { useParams } from "react-router-dom";
 import Footer from "../../footer/Footer";
 import Header from "../../header/Header";
-import dummy from "../../DummyData";
 import clock from "../../../assets/clock-icon.svg";
 import NavLinkTemplate from "../../layout/button/NavLinkTemplate";
 import DishSmallCard from "../../layout/card/DishSmallCard";
 import "./RestaurantPage.scss";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import DishPage from "../DishPage";
-
+import axios from "axios";
 
 const RestaurantPage = () => {
   const [openDishCard, setOpenDishCard] = useState(false);
   const [dishName, setDishName] = useState("");
+  const [dataResRestaurants, setDataResRestaurants] = useState([]);
+
+  const fetchRestaurantsData = async () => {
+    try {
+      const responseRestaurant = await axios.get(
+        "http://localhost:8080/restaurants"
+      );
+      setDataResRestaurants(responseRestaurant.data.result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchRestaurantsData();
+  }, []);
+
+
   const openDishCardHandler = (dish: string) => {
     setOpenDishCard(true);
     setDishName(dish);
   };
 
+  console.log(dataResRestaurants)
   const params: any = useParams();
-  const restaurantDetails = dummy.filter(
-    (item) => item.restaurantName === params.restaurantName
+  const restaurantDetails = dataResRestaurants.map(
+    (item) => item === params.restaurantName
   );
   const mealsTypes: string[] = ["Breakfast", "Lunch", "Dinner"];
   return (
     <Fragment>
       <Header />
-      {openDishCard && (<div><button className="dish-container" onClick={()=> setOpenDishCard(false)}></button> <button className="close-dish-page" onClick={()=>setOpenDishCard(false)}>X</button> <DishPage dish={dishName}></DishPage></div>)} 
+      {openDishCard && (<Fragment><button className="dish-container" onClick={()=> setOpenDishCard(false)}></button> <button className="close-dish-page" onClick={()=>setOpenDishCard(false)}>X</button> <DishPage dish={dishName}></DishPage></Fragment>)} 
        {!openDishCard && (<div className="restaurant-page-container">
-          <img
+          {/* <img
             src={restaurantDetails[0].desktopImage}
             alt="restaurant"
             className="restaurant-page-img"
@@ -62,11 +79,11 @@ const RestaurantPage = () => {
                 </button>
               );
             })}
-          </div>
+          </div> */}
           <Footer />
         </div>)}
     </Fragment>
-  );
+ );
 };
 
 export default RestaurantPage;

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const ChefsGrid: React.FC<{ addData: any; data: any }> = () => {
   return (
     <div className="restaurants-grid">
-      {addData.payload.map((item) => {
+      {/* {addData.payload.map((item) => {
         return (
           <Link to={`/ChefPage/${item.chefName}`} className="to-chef-btn"><BeigeCard
             key={item.key}
@@ -17,7 +17,7 @@ const ChefsGrid: React.FC<{ addData: any; data: any }> = () => {
             img={item.chefImage}
           ></BeigeCard></Link>
         );
-      })}
+      })} */}
     </div>
   );
 };

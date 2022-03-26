@@ -1,4 +1,4 @@
-import dummy from "../DummyData";
+//import dummy from "../DummyData";
 import "./DishPage.scss";
 import Input from "../layout/form/Input";
 import line from "../../assets/line-7-copy-2.png";
@@ -6,9 +6,9 @@ import { useState } from "react";
 
 
 const DishPage = (props: { dish: string }) => {
-  const dishDetails = dummy.filter(
-    (item) => item.signatureName === props.dish
-  )[0];
+  // const dishDetails = dummy.filter(
+  //   (item) => item.signatureName === props.dish
+  // )[0];
   const [quantityNumber, setQuantitynumber] = useState(1);
   const inputsContainer = (content: string) => {
     return (
@@ -26,7 +26,7 @@ const DishPage = (props: { dish: string }) => {
   }
   return (
     <div className="dish">
-        <div className="dish-details">
+        {/* <div className="dish-details">
           <img
             src={dishDetails.signatureImage}
             alt="img"
@@ -77,7 +77,7 @@ const DishPage = (props: { dish: string }) => {
           <span className="quantity-number">{quantityNumber}</span>
           <button onClick={addDish}>+</button>
         </div>
-        <button className="add-to-bag-btn">ADD TO BAG</button>
+        <button className="add-to-bag-btn">ADD TO BAG</button> */}
       </div>
   );
 };

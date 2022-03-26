@@ -7,13 +7,12 @@ import Footer from "../../footer/Footer";
 import Header from "../../header/Header";
 import PopularRestaurant from "./PopularRestaurant";
 import SignatureDish from "./SignatureDish";
-import Chefs from "./Chefs";
 import Icons from "./Icons";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import ChefItem from "./ChefItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ChefItem from "./ChefItem";
 
 const HomePage = () => {
   const [dataResRestaurants, setDataResRestaurants] = useState([]);
@@ -25,7 +24,7 @@ const HomePage = () => {
       const responseRestaurant = await axios.get(
         "http://localhost:8080/restaurants"
       );
-      setDataResRestaurants(responseRestaurant.data.data);
+      setDataResRestaurants(responseRestaurant.data.result);
     } catch (err) {
       console.log(err);
     }
@@ -37,7 +36,7 @@ const HomePage = () => {
   const fetchDishesData = async () => {
     try {
       const responseDishes = await axios.get("http://localhost:8080/dishes");
-      setDataResDishes(responseDishes.data.data);
+      setDataResDishes(responseDishes.data.result);
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +48,7 @@ const HomePage = () => {
   const fetchChefsData = async () => {
     try {
       const responseChefs = await axios.get("http://localhost:8080/chefs");
-      setDataResChefs(responseChefs.data.data);
+      setDataResChefs(responseChefs.data.result);
     } catch (err) {
       console.log(err);
     }
@@ -57,6 +56,7 @@ const HomePage = () => {
   useEffect(() => {
     fetchChefsData();
   }, []);
+
 
   return (
     <Fragment>
@@ -81,7 +81,7 @@ const HomePage = () => {
         <Icons />
       </div>
       <p className="sub-title">CHEF OF THE WEEK :</p>
-      <ChefItem chef={dataResChefs} />
+      <ChefItem chef={dataResChefs} restaurants={dataResRestaurants} />
       <About />
       <Footer />
     </Fragment>

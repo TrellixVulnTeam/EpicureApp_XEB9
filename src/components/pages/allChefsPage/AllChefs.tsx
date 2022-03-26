@@ -16,7 +16,7 @@ const AllChefs = () => {
           content={"Most Popular"}
         ></NavLinkTemplate>
       </nav>
-      <ChefsGrid />
+      {/* <ChefsGrid /> */}
       <Footer />
     </Fragment>
   );

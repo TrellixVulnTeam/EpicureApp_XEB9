@@ -1,11 +1,19 @@
 import "./HomePage.scss";
 import GreyCard from "../../layout/card/GreyCard";
-import { icons } from "../../DummyData";
 
 const Icons = () => {
+  const icons = {
+    spicy: "https://i.ibb.co/5FPS0NV/group-2.png",
+    spicyDekstop: "https://i.ibb.co/ns4DL2R/spicy-Desktop.png",
+    vegan: "https://i.ibb.co/LnVYWPv/vegan-icon.png",
+    veganDesktop: "https://i.ibb.co/LnVYWPv/vegan-icon.png",
+    vegiterian: "https://i.ibb.co/vwGsDJ8/vegiterian-icon.png",
+    vegiterianDesktop: "https://i.ibb.co/7JJQMKQ/vegetarian-Desktop.png",
+  };
   return (
     
-      <div className="icons"><GreyCard>
+      <div className="icons">
+        <GreyCard>
       <p className="icons-title"> THE MEANING OF OUR ICONS :</p>
       <div className="icons-container">
         <div>

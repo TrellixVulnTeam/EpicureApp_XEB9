@@ -11,14 +11,14 @@ const RestaurantsGrid: React.FC<{ addData: any; data: any }> = () => {
       {addData.payload.map((item) => {
         return (
           <Link
-            to={`/RestaurantPage/${item.restaurantName}`}
+            to={`/RestaurantPage/${item}`}
             className="to-restaurant-btn"
           >
             <BeigeCard
-              key={item.key}
-              title={item.restaurantName}
-              detail={item.chefName}
-              img={item.desktopImage}
+              key={item.name}
+              title={item.name}
+              detail={item.name}
+              img={item.name}
             ></BeigeCard>
           </Link>
         );

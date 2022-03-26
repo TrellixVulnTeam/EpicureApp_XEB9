@@ -29,8 +29,14 @@ const dishSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    side: [String],
-    changes: [String]
+    side: [{
+        type: String,
+        required: true
+    }],
+    changes: [{
+        type: String,
+        required: true
+    }],
 })
 
 module.exports = mongoose.model("dish", dishSchema)

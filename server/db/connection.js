@@ -42,6 +42,12 @@ const dbInit = async () => {
     vegiterian: "https://i.ibb.co/vwGsDJ8/vegiterian-icon.png",
     vegiterianDesktop: "https://i.ibb.co/7JJQMKQ/vegetarian-Desktop.png",
   };
+  const chefsImages= {
+    yossi: "https://i.ibb.co/KXj8k3Z/rectangle.png",
+    ran: "https://i.ibb.co/QnkcsMp/ran.jpg", 
+    yanir: "https://i.ibb.co/J7bGzS2/maxresdefault.jpg", 
+    meir: "https://i.ibb.co/D5nyxLX/mair.jpg"
+  }
   if (chefCount === 0) {
     chef.insertMany(
       [
@@ -110,75 +116,7 @@ const dbInit = async () => {
           price: 45,
           side: ["White Bread", "Sticky Rice"],
           changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
-        {
-          restaurant: "Onza",
-          name: "fish",
-          mobileImage: dishImages.fish,
-          desktopImage: dishImages.garbanzoDesktop,
-          description:
-            "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
-          icon: icons.spicy,
-          price: 45,
-          side: ["White Bread", "Sticky Rice"],
-          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
-        {
-          restaurant: "Kitchen Market",
-          name: "Smoked Pizza",
-          mobileImage: dishImages.pizza,
-          desktopImage: dishImages.desktopPizza,
-          description: "Basil dough, cashew butter, demi-glace, bison & radish",
-          icon: icons.vegan,
-          price: 45,
-          side: ["White Bread", "Sticky Rice"],
-          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
-        {
-          restaurant: "Mashya",
-          name: "Smoked Pizza",
-          mobileImage: restaurantImages.mashya,
-          desktopImage: restaurantImages.mashya,
-          description: "Basil dough, cashew butter, demi-glace, bison & radish",
-          icon: icons.vegan,
-          price: 45,
-          side: ["White Bread", "Sticky Rice"],
-          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
-        {
-          restaurant: "Claro",
-          name: "Red Farm",
-          mobileImage: restaurantImages.claro,
-          desktopImage: restaurantImages.desktopClaro,
-          description: "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
-          icon: icons.spicy,
-          price: 98,
-          side: ["White Bread", "Sticky Rice"],
-          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
-        {
-          restaurant: "Claro",
-          name: "Red Farm",
-          mobileImage: restaurantImages.claro,
-          desktopImage: restaurantImages.desktopClaro,
-          description: "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
-          icon: icons.spicy,
-          price: 98,
-          side: ["White Bread", "Sticky Rice"],
-          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
-        {
-          restaurant: "Claro",
-          name: "Ta Ma-La-Ko",
-          mobileImage: restaurantImages.claro,
-          desktopImage: restaurantImages.desktopClaro,
-          description:
-            "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
-          icon: icons.spicy,
-          price: 98,
-          side: ["White Bread", "Sticky Rice"],
-          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-        },
+        }
       ],
       () => console.log("dishes initialized successfuly")
     );
@@ -234,7 +172,7 @@ const dbInit = async () => {
   }
 };
 
-const connection = mongoose.connect(process.env.DB_HOST, () => {
+const connection = mongoose.connect("mongodb+srv://yardents:245123yarden@yarden.hvyfy.mongodb.net/epicure?retryWrites=true&w=majority", () => {
   console.log("db connected successfuly.");
   dbInit();
 });

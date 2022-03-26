@@ -1,29 +1,51 @@
-const ChefItem = ({ chef }) => {
-  const arr = [];
-  chef.map((chefDetails) => {
-    if (chefDetails.chefName === "Yossi Shitrit") {
-      for (let i = 0; i < chefDetails.restaurantName.length; i++) {
-        arr.push({
-          name: chefDetails.restaurantName[i],
-          img: chefDetails.restaurantImage[i],
-        });
-      }
-    }
-  });
-  console.log(arr)
+import { Fragment } from "react";
+import "./HomePage.scss";
+import { Link } from "react-router-dom";
+
+const ChefItem = ({ chef, restaurants }) => {
   return (
-    <div>
-      {arr.map((restaurant) => {
-        <div className="chef-restaurant-item">
-          <img
-            src={restaurant.name}
-            alt="img"
-            className="chef-restaurant-img"
-          />{" "}
-          <h3>{restaurant.img}</h3>
-        </div>
+    <Fragment>
+      {chef.map((chefDetails) => {
+        if (chefDetails.chefName === "Yossi Shitrit")
+          return (
+            <div className="chef-container">
+              <div className="chef-img">
+                <img
+                  src={chefDetails.chefImage}
+                  alt="chef"
+                  className="chef-img"
+                ></img>
+                <h1>{chefDetails.chefName}</h1>
+              </div>
+              <p className="chef-description">{chefDetails.chefDescription}</p>
+            </div>
+          );
       })}
-    </div>
+      <br />
+      <div className="chefs-restaurants">
+        <p className="chef-left-title">yossi’s restaurants :</p>
+        <div className="chef-restaurants-container">
+          {restaurants.map((restaurant) => {
+            if (restaurant.chef === "Yossi Shitrit")
+              return (
+                <Link
+                  to={`/RestaurantPage/${restaurant.name}`}
+                  className="to-restaurant"
+                >
+                  <div className="chef-restaurant-item">
+                    <img
+                      src={restaurant.mobileImage}
+                      alt="img"
+                      className="chef-restaurant-img"
+                    />{" "}
+                    <h3>{restaurant.name}</h3>
+                  </div>
+                </Link>
+              );
+          })}
+        </div>
+      </div>
+    </Fragment>
   );
 };
 
