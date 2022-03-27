@@ -23,7 +23,7 @@ const RestaurantPage = () => {
   useEffect(() => {
     dispatch(fetchRestaurants());
     dispatch(fetchDishes());
-  }, []);
+  });
 
   const openDishCardHandler = (dish: string) => {
     setOpenDishCard(true);
@@ -39,8 +39,6 @@ const RestaurantPage = () => {
   const restaurantDishes = dishes.filter(
     (item: any) => item.restaurant === params.restaurantName
   );
-
-  console.log(restaurantDetails[0]);
 
   const mealsTypes: string[] = ["Breakfast", "Lunch", "Dinner"];
 

@@ -16,7 +16,7 @@ const SignUp = () => {
                 <Input content={'Last Name'} placeholder={'Please Enter Your Last Email'} type={'text'} ></Input>
                 <Input content={'Password'} placeholder={'Please Enter Your Password'} type={'password'} ></Input>
                 <Input content={'Confirm Password'} placeholder={'Please Confirm Your Password'} type={'password'} ></Input>
-                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                <p>By creating an account you agree to our Terms & Privacy.</p>
                 <button type="submit">Submit</button>
                 <p>Already have an account?  <Link to='/SignIn'>Sign In</Link></p>
         </form>

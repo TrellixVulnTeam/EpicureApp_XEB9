@@ -20,7 +20,6 @@ const dishesSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchDishes.pending, (state, action) => {
-        console.log("loading dishes fetch");
         state.isLoading = true;
       })
       .addCase(fetchDishes.fulfilled, (state, action) => {
@@ -29,7 +28,7 @@ const dishesSlice = createSlice({
       })
       .addCase(fetchDishes.rejected, (state, action) => {
         state.isLoading = false;
-        console.log(action.error.message);
+        //console.log(action.error.message);
       });
   },
 });

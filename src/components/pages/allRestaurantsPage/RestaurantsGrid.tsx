@@ -13,7 +13,7 @@ const RestaurantsGrid = () => {
 
   useEffect(() => {
     dispatch(fetchRestaurants()) 
-    }, []);
+    });
 
   return (
     <div className="restaurants-grid">

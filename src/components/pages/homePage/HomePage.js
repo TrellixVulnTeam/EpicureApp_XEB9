@@ -28,7 +28,7 @@ const HomePage = () => {
     dispatch(fetchRestaurants()) 
     dispatch(fetchChefs()) 
     dispatch(fetchDishes()) 
-    }, []);
+    });
 
 
   return (

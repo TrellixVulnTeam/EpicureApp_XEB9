@@ -6,6 +6,7 @@ const SignatureItem =({dish}) => {
       <Fragment>
         <div className="restaurant-title">{dish.restaurant}</div>
          <DishCard
+          key={dish.name}
           img={dish.mobileImage}
           signatureDesktopImage={dish.desktopImage}
           title={dish.name}

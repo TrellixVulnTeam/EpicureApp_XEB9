@@ -19,7 +19,7 @@ const SignatureDish = ({ dishes }) => {
       <Slider {...settings}>
         {smallerArr &&
           smallerArr.map((dish) => {
-            return <SignatureItem dish={dish} />;
+            return <SignatureItem dish={dish} key={dish}/>;
           })}
       </Slider>
     </div>

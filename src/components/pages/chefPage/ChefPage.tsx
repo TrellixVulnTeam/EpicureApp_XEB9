@@ -18,7 +18,7 @@ const ChefPage = () => {
   useEffect(() => {
     dispatch(fetchChefs());
     dispatch(fetchRestaurants());
-  }, []);
+  });
 
   const params: any = useParams();
   const chefDetails = chefs.filter(
@@ -38,7 +38,7 @@ const ChefPage = () => {
           return (
             <Link
               to={`/RestaurantPage/${restaurant.restaurantName}`}
-              className="to-restaurant-btn"
+              className="to-restaurant-btn" key={restaurant.restaurantName}
             >
               <ChefCard
                 key={restaurant.name}

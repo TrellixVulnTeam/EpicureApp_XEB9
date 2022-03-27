@@ -19,7 +19,7 @@ const PopularRestaurant = ({ data }) => {
       <Slider {...settings}>
         {smallerArr &&
           smallerArr.map((restaurant) => {
-            return <PopularItem restaurant={restaurant} />;
+            return <PopularItem restaurant={restaurant} key={restaurant} />;
           })}
       </Slider>
     </div>

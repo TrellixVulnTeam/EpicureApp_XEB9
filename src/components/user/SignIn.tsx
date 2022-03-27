@@ -25,12 +25,8 @@ const SignIn = () => {
           Remember me{" "}
         </Input>
         <button type="submit">Submit</button>
-        <p className="psw">
-          Forgot <a href="#">password?</a>
-        </p>
-        <p>
-          Don't have an account yet? <Link to="/SignUp">Sign Up</Link>
-        </p>
+        <p className="psw">Forgot password?</p>
+        <p>Don't have an account yet? <Link to="/SignUp">Sign Up</Link></p>
       </form>
       <Footer />
     </Fragment>

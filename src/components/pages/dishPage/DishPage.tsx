@@ -12,7 +12,7 @@ const DishPage = (props: { dish: string }) => {
 
   useEffect(() => {
     dispatch(fetchDishes());
-  }, []);
+  });
 
   const dishDetails = dishes.filter((item: any) => item.name === props.dish)[0];
 
