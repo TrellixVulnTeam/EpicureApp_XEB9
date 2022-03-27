@@ -1,33 +1,34 @@
-import React from "react";
 import BeigeCard from "../../layout/card/BeigeCard";
-import { connect } from "react-redux";
-import { addData } from "../../../store/action";
-import './AllChefs.scss';
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../../store/store";
+import { useEffect } from "react";
+import { fetchChefs } from "../../../store/chefDataSlice";
+import "./AllChefs.scss";
 
-const ChefsGrid: React.FC<{ addData: any; data: any }> = () => {
+const ChefsGrid = () => {
+  const dispatch = useAppDispatch();
+  const { chefs } = useSelector((state: any) => state.chefs);
+
+  useEffect(() => {
+    dispatch(fetchChefs());
+  }, []);
   return (
     <div className="restaurants-grid">
-      {/* {addData.payload.map((item) => {
+      {chefs.map((item: any) => {
         return (
-          <Link to={`/ChefPage/${item.chefName}`} className="to-chef-btn"><BeigeCard
-            key={item.key}
-            title={item.chefName}
-            detail={""}
-            img={item.chefImage}
-          ></BeigeCard></Link>
+          <Link to={`/ChefPage/${item.chefName}`} className="to-chef-btn">
+            <BeigeCard
+              key={item.chefName}
+              title={item.chefName}
+              detail={""}
+              img={item.chefImage}
+            ></BeigeCard>
+          </Link>
         );
-      })} */}
+      })}
     </div>
   );
 };
-const mapStateToProps = (state: { data: any }) => ({ data: state.data });
 
-const mapDispatchToProps = (
-  dispatch: (arg0: { type: string; payload: any }) => any
-) => {
-  return {
-    addData: () => dispatch(addData),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ChefsGrid);
+export default ChefsGrid;

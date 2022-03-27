@@ -11,51 +11,24 @@ import Icons from "./Icons";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import ChefItem from "./ChefItem";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { fetchChefs } from "../../../store/chefDataSlice";
+import { fetchDishes } from "../../../store/dishDataSlice";
+import {fetchRestaurants} from "../../../store/RestaurantDataSlice";
+import { useSelector } from "react-redux";
+import { useAppDispatch} from "../../../store/store";
 
 const HomePage = () => {
-  const [dataResRestaurants, setDataResRestaurants] = useState([]);
-  const [dataResDishes, setDataResDishes] = useState([]);
-  const [dataResChefs, setDataResChefs] = useState([]);
+  const dispatch= useAppDispatch();
+  const {restaurants}= useSelector((state)=> state.restaurants);
+  const {dishes}= useSelector((state)=> state.dishes);
+  const {chefs}= useSelector((state)=> state.chefs);
 
-  const fetchRestaurantsData = async () => {
-    try {
-      const responseRestaurant = await axios.get(
-        "http://localhost:8080/restaurants"
-      );
-      setDataResRestaurants(responseRestaurant.data.result);
-    } catch (err) {
-      console.log(err);
-    }
-  };
   useEffect(() => {
-    fetchRestaurantsData();
-  }, []);
-
-  const fetchDishesData = async () => {
-    try {
-      const responseDishes = await axios.get("http://localhost:8080/dishes");
-      setDataResDishes(responseDishes.data.result);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    fetchDishesData();
-  }, []);
-
-  const fetchChefsData = async () => {
-    try {
-      const responseChefs = await axios.get("http://localhost:8080/chefs");
-      setDataResChefs(responseChefs.data.result);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    fetchChefsData();
-  }, []);
+    dispatch(fetchRestaurants()) 
+    dispatch(fetchChefs()) 
+    dispatch(fetchDishes()) 
+    }, []);
 
 
   return (
@@ -72,16 +45,16 @@ const HomePage = () => {
       <MobileNav />
       <div className="data-section">
         <p className="sub-title">THE POPULAR RESTAURANTS IN EPICURE : </p>
-        <PopularRestaurant data={dataResRestaurants} />
+        <PopularRestaurant data={restaurants} />
         <Link to={"AllRestaurants"} className="all-restaurants-desktop-btn">
           All Restaurants {">>"}{" "}
         </Link>
         <p className="sub-title">SIGNATURE DISH OF :</p>
-        <SignatureDish dishes={dataResDishes} />
+        <SignatureDish dishes={dishes} />
         <Icons />
       </div>
       <p className="sub-title">CHEF OF THE WEEK :</p>
-      <ChefItem chef={dataResChefs} restaurants={dataResRestaurants} />
+      <ChefItem chef={chefs} restaurants={restaurants} />
       <About />
       <Footer />
     </Fragment>

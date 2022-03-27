@@ -9,11 +9,10 @@ import TermsOfUse from "./components/footer/TermsOfUse";
 import ContactUs from "./components/footer/ContactUs";
 import SignIn from "./components/user/SignIn";
 import SignUp from "./components/user/SignUp";
-// import RestaurantPage from "./components/pages/restaurantPage/RestaurantPage";
-// import ChefPage from "./components/pages/chefPage/ChefPage";
+import RestaurantPage from "./components/pages/restaurantPage/RestaurantPage";
+ import ChefPage from "./components/pages/chefPage/ChefPage";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Route path="/Home" exact>
@@ -23,7 +22,7 @@ function App() {
         <HomePage />
       </Route>
       <Route path="/AllRestaurants" exact>
-        <AllRestaurants addData={undefined} data={undefined} />
+        <AllRestaurants />
       </Route>
       <Route path="/AllChefs" exact>
         <AllChefs />
@@ -43,12 +42,12 @@ function App() {
       <Route path="/SignUp" exact>
         <SignUp />
       </Route>
-      {/* <Route path="/ChefPage/:chefName" exact>
+      <Route path="/ChefPage/:chefName" exact>
         <ChefPage />
       </Route>
       <Route path="/RestaurantPage/:restaurantName" exact>
         <RestaurantPage />
-      </Route> */}
+      </Route>  
     </BrowserRouter>
   );
 }

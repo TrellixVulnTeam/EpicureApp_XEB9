@@ -158,6 +158,12 @@ h3 {
   @include letter-spacing($small-space);
 }
 
+.chef-page-description {
+  margin: 40px 100px;
+  font-size: 20px;
+  @include letter-spacing($small-space);
+}
+
 .chef-restaurants-container {
   overflow: scroll;
   display: flex;
@@ -279,6 +285,9 @@ h3 {
   .chef-description {
     margin: 0 100px 0 $largest-size;
     padding: $small-size;
+  }
+  .chef-page-description {
+    margin: 40px 150px;
   }
   .chef-name {
     bottom: $medium-size;

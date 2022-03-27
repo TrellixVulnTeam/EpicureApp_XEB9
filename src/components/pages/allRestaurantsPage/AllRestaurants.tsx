@@ -7,7 +7,7 @@ import RestaurantsGrid from "./RestaurantsGrid";
 import React from 'react';
 
 
-const AllRestaurants:React.FC<{addData: any, data:any}>= (props) => {
+const AllRestaurants:React.FC= () => {
   return (
     <Fragment>
       <Header />
