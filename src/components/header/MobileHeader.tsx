@@ -12,8 +12,8 @@ import CloseButton from "../layout/button/CloseButton";
 
 const MobileHeader = () => {
   const content: string[] = [
-    "All Chefs",
-    "All Restaurants",
+    "chefs",
+    "restaurants",
     "",
     "Sign In",
     "Contact Us",
