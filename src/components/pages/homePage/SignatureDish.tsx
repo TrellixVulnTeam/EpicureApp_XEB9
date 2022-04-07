@@ -2,7 +2,7 @@ import SignatureItem from "./SignatureItem";
 import "./HomePage.scss";
 import Slider from "react-slick";
 
-const SignatureDish = ({ dishes }) => {
+const SignatureDish = ({ dishes }: any) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,7 +18,7 @@ const SignatureDish = ({ dishes }) => {
     <div className="slider-div">
       <Slider {...settings}>
         {smallerArr &&
-          smallerArr.map((dish) => {
+          smallerArr.map((dish:any) => {
             return <SignatureItem dish={dish} key={dish}/>;
           })}
       </Slider>

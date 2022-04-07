@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import DishCard from "../../layout/card/DishCard";
 
-const SignatureItem =({dish}) => {
+const SignatureItem =({dish}:any) => {
     return (
       <Fragment>
         <div className="restaurant-title">{dish.restaurant}</div>

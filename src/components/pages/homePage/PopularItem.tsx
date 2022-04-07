@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const PopularItem = ({restaurant}) => {
+const PopularItem = ({restaurant}:any) => {
     return (
       <Link
         to={`/restaurant/${restaurant.name}`}

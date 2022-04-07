@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import Slider from "react-slick";
 import PopularItem from "./PopularItem";
 
-const PopularRestaurant = ({ data }) => {
+const PopularRestaurant = ({ data }:any) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,7 +18,7 @@ const PopularRestaurant = ({ data }) => {
     <div className="slider-div">
       <Slider {...settings}>
         {smallerArr &&
-          smallerArr.map((restaurant) => {
+          smallerArr.map((restaurant:any) => {
             return <PopularItem restaurant={restaurant} key={restaurant} />;
           })}
       </Slider>

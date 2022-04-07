@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import "./HomePage.scss";
 import { Link } from "react-router-dom";
 
-const ChefItem = ({ chef, restaurants }) => {
+const ChefItem = ({ chef, restaurants }:any) => {
   return (
     <Fragment>
-      {chef.map((chefDetails) => {
+      {chef.map((chefDetails:any) => {
         if (chefDetails.chefOfTheWeek === true) {
           return (
             <div className="chef-container">
@@ -26,7 +26,7 @@ const ChefItem = ({ chef, restaurants }) => {
       <div className="chefs-restaurants">
         <p className="chef-left-title">yossi’s restaurants :</p>
         <div className="chef-restaurants-container">
-          {restaurants.map((restaurant) => {
+          {restaurants.map((restaurant:any) => {
             if (restaurant.chef === "Yossi Shitrit") {
               return (
                 <Link
