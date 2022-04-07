@@ -13,11 +13,12 @@ const ChefsGrid = () => {
   useEffect(() => {
     dispatch(fetchChefs());
   });
+
   return (
     <div className="restaurants-grid">
       {chefs.map((item: any) => {
         return (
-          <Link to={`/ChefPage/${item.chefName}`} className="to-chef-btn">
+          <Link to={`/chef/${item.chefName}`} className="to-chef-btn">
             <BeigeCard
               key={item.chefName}
               title={item.chefName}

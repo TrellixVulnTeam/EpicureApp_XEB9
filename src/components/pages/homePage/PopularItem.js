@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const PopularItem = ({restaurant}) => {
     return (
       <Link
-        to={`/RestaurantPage/${restaurant.name}`}
+        to={`/restaurant/${restaurant.name}`}
         className="to-restaurant-btn">
         <div className="data-item popular-item">
           <img

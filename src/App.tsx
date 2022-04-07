@@ -21,10 +21,10 @@ function App() {
       <Route path="/" exact>
         <HomePage />
       </Route>
-      <Route path="/AllRestaurants" exact>
+      <Route path="/restaurants" exact>
         <AllRestaurants />
       </Route>
-      <Route path="/AllChefs" exact>
+      <Route path="/chefs" exact>
         <AllChefs />
       </Route>
       <Route path="/PrivacyPolicy" exact>
@@ -42,10 +42,10 @@ function App() {
       <Route path="/SignUp" exact>
         <SignUp />
       </Route>
-      <Route path="/ChefPage/:chefName" exact>
+      <Route path="/chef/:chefName" exact>
         <ChefPage />
       </Route>
-      <Route path="/RestaurantPage/:restaurantName" exact>
+      <Route path="/restaurant/:restaurantName" exact>
         <RestaurantPage />
       </Route>  
     </BrowserRouter>

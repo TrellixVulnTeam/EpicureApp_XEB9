@@ -1,24 +1,23 @@
 import Header from "../../header/Header";
 import "./AllRestaurants.scss";
-import NavLinkTemplate from "../../layout/button/NavLinkTemplate";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Footer from "../../footer/Footer";
 import RestaurantsGrid from "./RestaurantsGrid";
-import React from 'react';
+import React from "react";
 
-
-const AllRestaurants:React.FC= () => {
+const AllRestaurants: React.FC = () => {
+  const [filter, setFilter] = useState("all");
   return (
     <Fragment>
       <Header />
       <h2>Restaurants</h2>
       <div className="categories-div">
-       <NavLinkTemplate to={'/AllRestaurants'} content={'All'}></NavLinkTemplate>
-       <NavLinkTemplate to={'/New'} content={'New'}></NavLinkTemplate>
-       <NavLinkTemplate to={'/MostPopular'} content={'Most Popular'}></NavLinkTemplate>
-       <NavLinkTemplate to={'/OpenNow'} content={'Open Now'}></NavLinkTemplate>
+        <button onClick={() => setFilter("all")}>All</button>
+        <button onClick={() => setFilter("new")}>New</button>
+        <button onClick={() => setFilter("open")}>Open now</button>
+        <button onClick={() => setFilter("popular")}>Popular</button>
       </div>
-      <RestaurantsGrid />
+      <RestaurantsGrid filter={filter} />
       <hr />
       <Footer />
     </Fragment>

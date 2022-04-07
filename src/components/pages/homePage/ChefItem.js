@@ -6,7 +6,7 @@ const ChefItem = ({ chef, restaurants }) => {
   return (
     <Fragment>
       {chef.map((chefDetails) => {
-        if (chefDetails.chefName === "Yossi Shitrit") {
+        if (chefDetails.chefOfTheWeek === true) {
           return (
             <div className="chef-container">
               <div className="chef-img">
@@ -30,7 +30,7 @@ const ChefItem = ({ chef, restaurants }) => {
             if (restaurant.chef === "Yossi Shitrit") {
               return (
                 <Link
-                  to={`/RestaurantPage/${restaurant.name}`}
+                  to={`/restaurant/${restaurant.name}`}
                   className="to-restaurant" key={restaurant.name}
                 >
                   <div className="chef-restaurant-item">
