@@ -1,6 +1,6 @@
 import Header from "../../header/Header";
 import "./AllRestaurants.scss";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Footer from "../../footer/Footer";
 import RestaurantsGrid from "./RestaurantsGrid";
 import React from "react";
@@ -8,7 +8,7 @@ import React from "react";
 const AllRestaurants: React.FC = () => {
   const [filter, setFilter] = useState("all");
   return (
-    <Fragment>
+    <div className="all-restaurants-page">
       <Header />
       <h2>Restaurants</h2>
       <div className="categories-div">
@@ -20,7 +20,7 @@ const AllRestaurants: React.FC = () => {
       <RestaurantsGrid filter={filter} />
       <hr />
       <Footer />
-    </Fragment>
+    </div>
   );
 };
 

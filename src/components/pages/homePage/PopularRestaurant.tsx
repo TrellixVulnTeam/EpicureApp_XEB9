@@ -10,7 +10,7 @@ const PopularRestaurant = ({ data }:any) => {
     slidesToScroll: 1,
     responsive: [
       { breakpoint: 1300, settings: { slidesToShow: 2 } },
-      { breakpoint: 1050, settings: { slidesToShow: 1.5 } },
+      { breakpoint: 1050, settings: { slidesToShow: 1.15} },
     ]
   };
   return (

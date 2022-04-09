@@ -205,7 +205,31 @@ const dbInit = async () => {
           price: 45,
           side: ["White Bread", "Sticky Rice"],
           changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-          dishType: dishTypes.lunch
+          dishType: dishTypes.breakfast
+        },
+        {
+          restaurant: "Claro",
+          name: "Pad Ki Mao",
+          mobileImage: dishImages.padKimao,
+          desktopImage: dishImages.desktopPadKimao,
+          description: "Basil dough, cashew butter, demi-glace, bison & radish",
+          icon: icons.vegan,
+          price: 45,
+          side: ["White Bread", "Sticky Rice"],
+          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
+          dishType: dishTypes.breakfast
+        },
+        {
+          restaurant: "Claro",
+          name: "Pad Ki Mao",
+          mobileImage: dishImages.padKimao,
+          desktopImage: dishImages.desktopPadKimao,
+          description: "Basil dough, cashew butter, demi-glace, bison & radish",
+          icon: icons.vegan,
+          price: 45,
+          side: ["White Bread", "Sticky Rice"],
+          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
+          dishType: dishTypes.breakfast
         },
         {
           restaurant: "Onza",
@@ -313,7 +337,19 @@ const dbInit = async () => {
           price: 45,
           side: ["White Bread", "Sticky Rice"],
           changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-          dishType: dishTypes.breakfast
+          dishType: dishTypes.lunch
+        },
+        {
+          restaurant: "Claro",
+          name: "Ta Ma-La-Ko",
+          mobileImage: dishImages.pizza,
+          desktopImage: dishImages.desktopPizza,
+          description: "Basil dough, cashew butter, demi-glace, bison & radish",
+          icon: icons.vegan,
+          price: 45,
+          side: ["White Bread", "Sticky Rice"],
+          changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
+          dishType: dishTypes.lunch
         },
         {
           restaurant: "Claro",
@@ -337,7 +373,7 @@ const dbInit = async () => {
           price: 45,
           side: ["White Bread", "Sticky Rice"],
           changes: ["Without Onion", "Without Peanuts", "Less Spicy"],
-          dishType: dishTypes.lunch
+          dishType: dishTypes.dinner
         },
       ]
     );

@@ -37,8 +37,8 @@ const ChefPage = () => {
         {chefRestaurants.map((restaurant: any) => {
           return (
             <Link
-              to={`/restaurant/${restaurant.restaurantName}`}
-              className="to-restaurant-btn" key={restaurant.restaurantName}
+              to={`/restaurant/${restaurant.name}`}
+              className="to-restaurant-btn" key={restaurant.name}
             >
               <ChefCard
                 key={restaurant.name}

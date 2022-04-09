@@ -42,7 +42,7 @@ nav {
 .close-nav-bar {
   font-size: 25px;
   border: none;
-  margin: $small-size 320px 0 0;
+  margin: $small-size 360px 0 0;
   @include clear-btn;
 }
 
@@ -70,18 +70,22 @@ nav {
   .hamburger-nav-list::marker {
     color: white;
   }
-  .hamburger-nav-list:first-child {
-    font-weight: bold;
+}
+
+.hamburger-nav-top{
+  margin-top: 30px; 
+  display: flex;
+  flex-direction: column;
+  .hamburger-nav-top-links {
+      font-size: 20px;
+      margin: 30px;
+      font-weight: bold;
+      letter-spacing: 1.33px;
+      text-decoration: none;
+      color: black;
   }
-  .hamburger-nav-list:nth-child(2) {
-    font-weight: bold;
-  }
-  .hamburger-nav-list:nth-child(4) {
-    border: 0.2px solid grey;
-    background-color: grey;
-    width: 170px;
-    margin-left: 50px;
-    height: 0.2px;
+  hr {
+    width: 200px;
   }
 }
 

@@ -11,14 +11,7 @@ import { Link } from "react-router-dom";
 import CloseButton from "../layout/button/CloseButton";
 
 const MobileHeader = () => {
-  const content: string[] = [
-    "chefs",
-    "restaurants",
-    "",
-    "Sign In",
-    "Contact Us",
-    "Terms Of Use",
-  ];
+  const content: string[] = ["Sign In", "Contact Us", "Terms Of Use"];
   const [showNavBar, setShowNavBar] = useState(false);
   const openNavBarHandler = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -55,12 +48,14 @@ const MobileHeader = () => {
           {showNavBar && (
             <CloseButton onClick={() => setShowNavBar(false)}></CloseButton>
           )}
+          <div className="hamburger-nav-top">
+            <Link to="/chefs" className="hamburger-nav-top-links">Chefs</Link>
+            <Link to="/restaurants" className="hamburger-nav-top-links">All Restaurants</Link>
+            <hr />
+          </div>           
           {content.map((navLi) => (
             <li className="hamburger-nav-list">
-              <NavLinkTemplate
-                content={navLi}
-                to={navLi.replace(/\s/g, "")}
-              />
+              <NavLinkTemplate content={navLi} to={navLi.replace(/\s/g, "")} />
             </li>
           ))}
         </div>
