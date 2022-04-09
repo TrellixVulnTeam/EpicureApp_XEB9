@@ -13,9 +13,9 @@ const AllRestaurants: React.FC = () => {
       <h2>Restaurants</h2>
       <div className="categories-div">
         <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("new")}>New</button>
-        <button onClick={() => setFilter("open")}>Open now</button>
-        <button onClick={() => setFilter("popular")}>Popular</button>
+        <button onClick={() => setFilter("new")}>New</button>        
+        <button onClick={() => setFilter("popular")}>Most Popular</button>
+        <button onClick={() => setFilter("open")}>Open Now</button>
       </div>
       <RestaurantsGrid filter={filter} />
       <hr />

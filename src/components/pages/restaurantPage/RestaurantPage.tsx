@@ -42,8 +42,12 @@ const RestaurantPage = () => {
 
   const mealsTypes: string[] = ["Breakfast", "Lunch", "Dinner"];
 
+  const opening = restaurantDetails[0].openingHour.split(":")[0] * 1;
+  const closing = restaurantDetails[0].closingHour.split(":")[0] * 1;
+  const now = new Date().getHours();
+  const ifOpen: boolean = now >= opening && now <= closing;
   return (
-    <Fragment>
+    <div className="restaurant-page">
       <Header />
       {openDishCard && (
         <Fragment>
@@ -70,37 +74,52 @@ const RestaurantPage = () => {
           ></img>
           <h1>{params.restaurantName}</h1>
           <h2>{restaurantDetails[0].chef}</h2>
-          <img src={clock} alt="clock"></img> <span>Open now</span>
+          {ifOpen && (
+            <div>
+              <img src={clock} alt="clock"></img> <span>Open now</span>
+            </div>
+          )}
           <nav className="categories-div">
-            {mealsTypes.map((type) => (
-              <NavLinkTemplate content={type} to={`/${type}`} />
-            ))}
+         {/* /   
+           //   <NavLinkTemplate content={type} to={`/${type}`} /> */}
+             {mealsTypes.map((type) => ( <a href={`#${type}`} className="type-meal-link">{type}</a>))}
+      
           </nav>
-          <div className="restaurants-container">
-            {restaurantDishes.map((dish: any) => {
-              return (
-                <button
-                  className="to-dish-btn"
-                  onClick={() => openDishCardHandler(dish.name)}
-                >
-                  <div className="restaurant-item">
-                    <DishSmallCard
-                      img={dish.mobileImage}
-                      signatureDesktopImage={dish.desktopImage}
-                      title={dish.name}
-                      detail={dish.description}
-                      price={dish.price}
-                      key={dish.key}
-                    ></DishSmallCard>
-                  </div>
-                </button>
-              );
-            })}
+          <div className="meal-by-type">
+            {mealsTypes.map((type) => {return <Fragment>
+              <div className="type-container" id={type}>
+                <h2>{type}</h2>
+                <div className="type-line"></div> 
+              </div>
+                <div className="restaurants-container">
+                  {restaurantDishes.map((dish: any) => {
+                    if (dish.dishType === mealsTypes[0])
+                      return (
+                        <button
+                          className="to-dish-btn"
+                          onClick={() => openDishCardHandler(dish.name)}
+                        >
+                          <div className="restaurant-item">
+                            <DishSmallCard
+                              img={dish.mobileImage}
+                              signatureDesktopImage={dish.desktopImage}
+                              title={dish.name}
+                              detail={dish.description}
+                              price={dish.price}
+                              key={dish.key}
+                            ></DishSmallCard>
+                          </div>
+                        </button>
+                      );
+                  })}
+                </div>
+              </Fragment>}
+            )}
           </div>
           <Footer />
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 

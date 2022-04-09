@@ -13,12 +13,11 @@ const SignatureDish = ({ dishes }: any) => {
       { breakpoint: 1050, settings: { slidesToShow: 1.1 } },
     ],
   };
-  const smallerArr = dishes.slice(0, 3);
   return (
     <div className="slider-div">
       <Slider {...settings}>
-        {smallerArr &&
-          smallerArr.map((dish:any) => {
+        {dishes &&
+          dishes.map((dish:any) => {
             return <SignatureItem dish={dish} key={dish}/>;
           })}
       </Slider>

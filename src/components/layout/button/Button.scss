@@ -1,4 +1,5 @@
 $sand-80: rgba(232, 196, 122, 0.8);
+$light-tan: #f7e0b2;
 $medium-space: 1.33px;
 $small-space: 0.93px;
 $small-size: 10px;
@@ -54,6 +55,8 @@ $small-size: 10px;
 
 .active-link {
   font-weight: bold;
+  border-bottom: 2px solid $light-tan;
+  padding-bottom: 25px;
 }
 
 .close-nav-bar {
@@ -64,12 +67,12 @@ $small-size: 10px;
 }
 
 .footer-li {
-  text-decoration: none;
   list-style: none;
   color: black;
   top: 100%;
   position: relative;
   @include letter-spacing($medium-space);
+  text-decoration: none;
 }
 
 @media screen and (min-width: 800px) {

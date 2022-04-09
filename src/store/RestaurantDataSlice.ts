@@ -14,7 +14,6 @@ const restaurantsSlice = createSlice({
   },
   reducers: {
     toggle(state) {
-      state.sayHi = "";
     },
   },
   extraReducers(builder) {

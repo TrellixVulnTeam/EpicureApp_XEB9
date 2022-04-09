@@ -20,9 +20,9 @@ import { useAppDispatch} from "../../../store/store";
 
 const HomePage = () => {
   const dispatch= useAppDispatch();
-  const {restaurants}= useSelector((state)=> state.restaurants);
-  const {dishes}= useSelector((state)=> state.dishes);
-  const {chefs}= useSelector((state)=> state.chefs);
+  const {restaurants}= useSelector((state:any)=> state.restaurants);
+  const {dishes}= useSelector((state:any)=> state.dishes);
+  const {chefs}= useSelector((state:any)=> state.chefs);
 
   useEffect(() => {
     dispatch(fetchRestaurants()) 

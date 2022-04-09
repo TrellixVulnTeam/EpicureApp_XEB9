@@ -14,7 +14,6 @@ const chefsSlice = createSlice({
   },
   reducers: {
     toggle(state) {
-      state.sayHi = "";
     },
   },
   extraReducers(builder) {

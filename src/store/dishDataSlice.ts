@@ -14,7 +14,6 @@ const dishesSlice = createSlice({
   },
   reducers: {
     toggle(state) {
-      state.sayHi = "";
     },
   },
   extraReducers(builder) {

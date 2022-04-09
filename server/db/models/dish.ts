@@ -37,6 +37,10 @@ const dishSchema = new mongoose.Schema({
         type: String,
         required: true
     }],
+    dishType: {
+        type: String,
+        required: true
+    }
 })
 
 const dish = mongoose.model("dish", dishSchema)
