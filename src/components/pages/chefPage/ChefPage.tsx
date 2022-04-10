@@ -33,6 +33,7 @@ const ChefPage = () => {
       <h1>{params.chefName}</h1>
       <img src={chefDetails[0].chefImage} alt="chef" className="chef-img" />
       <p className="chef-page-description">{chefDetails[0].chefDescription}</p>
+      <h2>{params.chefName}'s Restaurants:</h2>
       <div className="chef-restaurants-container">
         {chefRestaurants.map((restaurant: any) => {
           return (
