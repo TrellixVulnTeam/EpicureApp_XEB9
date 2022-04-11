@@ -1,24 +1,77 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Input from '../layout/form/Input';
 import './User.scss';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+import SubmitButton from '../layout/button/SubmitButton';
+import axios from 'axios';
 const SignUp = () => {
+
+  const [usernameInputs, setUsernameInputs] = useState()
+  const [firstnameInputs, setFirstnameInputs] = useState()
+  const [lastnameInputs, setLastnameInputs] = useState()
+  const [passwordInputs, setPasswordInputs] = useState()
+
+  const [feedback, setFeedback] = useState("")
+
+  const handleChangeUsername = (e: any) => {
+    setUsernameInputs(e.target.value)
+  }
+  const handleChangeFirstname = (e: any) => {
+    setFirstnameInputs(e.target.value)
+  }
+  const handleChangeLastname = (e: any) => {
+    setLastnameInputs(e.target.value)
+  }
+  const handleChangePassword = (e: any) => {
+    setPasswordInputs(e.target.value)
+  }
+
+  const handleSubmit = async (e: any)=> {
+    e.preventDefault()
+    try {
+    const result = await axios.post("http://localhost:8080/signup", {usernameInputs,firstnameInputs,lastnameInputs,passwordInputs})
+    console.log(result)
+   // if(result.data.token) localStorage.setItem("token", result.data.token)
+    setFeedback("Signed up successfuly")
+    }
+    catch(err: any) {
+     // setFeedback(err.response.data || "Network error. try again")
+    }
+  }
+
+  const isLoggedIn = async () => {
+    const token: any = localStorage.getItem("token")
+    try {
+    const result = await axios.get("http://localhost:8080/auth", {
+      headers: {
+        "auth-token": token
+      }
+    })
+    document.location.href = "http://localhost:3000/"
+  } catch(err) {
+    localStorage.removeItem("token")
+  }
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if(token) isLoggedIn()
+  }, [])
   return (
     <Fragment>
       <Header />
         <form>
         <h2>Sign Up</h2>
         <p>Please fill in this form to create an account.</p>
-                <Input content={'Email'} placeholder={'Please Enter Your Email'} type={'email'} ></Input>
-                <Input content={'First Name'} placeholder={'Please Enter Your First Name'} type={'text'} ></Input>
-                <Input content={'Last Name'} placeholder={'Please Enter Your Last Email'} type={'text'} ></Input>
-                <Input content={'Password'} placeholder={'Please Enter Your Password'} type={'password'} ></Input>
-                <Input content={'Confirm Password'} placeholder={'Please Confirm Your Password'} type={'password'} ></Input>
-                <p>By creating an account you agree to our Terms & Privacy.</p>
-                <button type="submit">Submit</button>
-                <p>Already have an account?  <Link to='/SignIn'>Sign In</Link></p>
+                <Input content={'First Name '} placeholder={'Please Enter Your First Name'} type={'text'}  onChange={(e:any) => handleChangeFirstname(e)} value={firstnameInputs}></Input>
+                <Input content={'Last Name '} placeholder={'Please Enter Your Last Name'} type={'text'}  onChange={(e:any) => handleChangeLastname(e)} value={lastnameInputs}></Input>                
+                <Input content={'Username '} placeholder={'Please Enter Your Username'} type={'text'}  onChange={(e:any) => handleChangeUsername(e)} value={usernameInputs}></Input>
+                <Input content={'Password '} placeholder={'Please Enter Your Password'} type={'password'}  onChange={(e:any) => handleChangePassword(e)} value={passwordInputs}></Input>
+                <SubmitButton  onClick={(e:any) => handleSubmit(e)}/>
+                <p>Already have an account?  <Link to='/signin'>Sign In</Link></p>
+                <b>{feedback}</b>
         </form>
         <Footer />
     </Fragment>

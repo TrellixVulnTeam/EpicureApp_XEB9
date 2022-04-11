@@ -1,4 +1,5 @@
 $sand-80: rgba(232, 196, 122, 0.8);
+$beige: #f9f4ea;
 $light-tan: #f7e0b2;
 $medium-space: 1.33px;
 $small-space: 0.93px;
@@ -38,6 +39,21 @@ $small-size: 10px;
   @include clear-btn;
 }
 
+.submit-btn {
+  background-color: $sand-80;
+  border: 1px solid $light-tan;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 20px;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: $light-tan;
+  color: $beige;
+}
 .app-name {
   font-size: 11px;
   margin: 0;

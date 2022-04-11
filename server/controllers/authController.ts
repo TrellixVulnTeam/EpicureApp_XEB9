@@ -5,12 +5,26 @@ import jwt from "jsonwebtoken";
 
 class authController {
   async getUserById(req: Request, res: Response) {
-      
-    const { id } = req.params;
-    if (!id) return res.status(400).send("no id.");
-    const result = await usersHandler.getUserByIdHandler(id);
+    const { _id } = req.body.user;
+    if (!_id) return res.status(400).send("no id.");
+    const result = await usersHandler.getUserByIdHandler(_id);
     if (result) return res.status(200).json({ result });
     return res.status(500).send("Internal error.");
+  }
+
+  async signin(req: Request, res: Response) {
+    let { username, password } = req.body;
+    const result = await usersHandler.getUserByUsernameHandler(username);
+    if (!result)
+      return res.status(400).send("username or password is incorrect.");
+
+    const match = await bcrypt.compare(password, result.password);
+    const tokenSecret: any = process.env.TOKEN_SECRET;
+    if (!match)
+      return res.status(400).send("username or password is incorrect.");
+    const token = jwt.sign(JSON.stringify({ id: result._id }), tokenSecret);
+    if (!token) return res.status(500).send("Internal error.");
+    return res.status(200).json({ token });
   }
 
   async signup(req: Request, res: Response) {
@@ -24,29 +38,8 @@ class authController {
       lastName,
     });
     if (!result._id) return res.status(500).send("Internal error.");
-    const tokenSecret:any=  process.env.TOKEN_SECRET;
-    const token = jwt.sign(
-      JSON.stringify({ id: result._id }),
-      tokenSecret
-    );
-    if (!token) return res.status(500).send("Internal error.");
-    return res.status(200).json({ token });
-  }
-
-  async signin(req: Request, res: Response) {
-    let { username, password } = req.body;
-    const result = await usersHandler.getUserByUsernameHandler(username);
-    if (!result)
-      return res.status(400).send("username or password is incorrect.");
-
-    const match = await bcrypt.compare(password, result.password);
-    const tokenSecret:any=  process.env.TOKEN_SECRET;
-    if (!match)
-      return res.status(400).send("username or password is incorrect.");
-    const token = jwt.sign(
-      JSON.stringify({ id: result._id }),
-     tokenSecret
-    );
+    const tokenSecret: any = process.env.TOKEN_SECRET;
+    const token = jwt.sign(JSON.stringify({ id: result._id }), tokenSecret);
     if (!token) return res.status(500).send("Internal error.");
     return res.status(200).json({ token });
   }

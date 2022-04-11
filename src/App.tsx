@@ -36,10 +36,10 @@ function App() {
       <Route path="/ContactUs" exact>
         <ContactUs />
       </Route>
-      <Route path="/SignIn" exact>
+      <Route path="/signin" exact>
         <SignIn />
       </Route>
-      <Route path="/SignUp" exact>
+      <Route path="/signup" exact>
         <SignUp />
       </Route>
       <Route path="/chef/:chefName" exact>

@@ -23,7 +23,7 @@ const DesktopHeader = () => {
 
       <div className="right-nav">
         <Search />
-        <Link to="/SignIn">
+        <Link to="/signin">
           <img src={user} alt="user"></img>
         </Link>
         <img src={bag} alt="bag"></img>

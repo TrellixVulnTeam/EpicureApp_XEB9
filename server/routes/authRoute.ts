@@ -3,15 +3,15 @@ import express from "express";
 import authMiddleware from '../middlewares/authMiddleware.js';
 const authRouter = express.Router();
 
-const newauthController = new authController;
+const newAuthController = new authController;
 
-authRouter.post("/signin", newauthController.signin);
+authRouter.post("/signin", newAuthController.signin);
 
-authRouter.post("/signup", newauthController.signup);
+authRouter.post("/signup", newAuthController.signup);
 
-authRouter.get("/:id", newauthController.getUserById);
+authRouter.get("/", authMiddleware, newAuthController.getUserById);
 
-authRouter.delete("/", authMiddleware, newauthController.deleteUser);
+authRouter.delete("/", authMiddleware, newAuthController.deleteUser);
 
 
 export default authRouter;

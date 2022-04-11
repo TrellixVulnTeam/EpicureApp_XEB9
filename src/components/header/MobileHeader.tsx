@@ -34,7 +34,7 @@ const MobileHeader = () => {
               </Link>
               <div className="right-icons">
                 <img src={search} alt="search"></img>
-                <Link to="/SignIn">
+                <Link to="/signin">
                   <img src={user} alt="user"></img>
                 </Link>
                 <img src={bag} alt="bag"></img>

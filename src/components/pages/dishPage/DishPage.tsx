@@ -68,13 +68,13 @@ const DishPage = (props: { dish: string }) => {
       {inputsContainer("Choose a side")}
       <p>
         {dishDetails.side.map((side: any) => (
-          <Input content={side} type={"radio"} placeholder={""} />
+          <Input content={side} type={"radio"} placeholder={""}  onChange={""} value={""}/>
         ))}
       </p>
       {inputsContainer("Changes")}
       <p>
         {dishDetails.changes.map((change: any) => (
-          <Input content={change} type={"checkbox"} placeholder={""} />
+          <Input content={change} type={"checkbox"} placeholder={""} onChange={""}  value={""}/>
         ))}
       </p>
       {inputsContainer("Quantity")}
