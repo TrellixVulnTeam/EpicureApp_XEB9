@@ -6,6 +6,7 @@ const AllChefs = () => {
   return (
     <div className="all-chefs-page">
       <Header />
+      <br /> <br />
       <h2>Chefs</h2>  
        <ChefsGrid /> 
       <Footer />

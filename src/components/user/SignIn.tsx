@@ -24,9 +24,10 @@ const SignIn = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>)=> {
     e.preventDefault()
     try {
-    const result = await axios.post("http://localhost:8080/auth/signin", {usernameInputs, passwordInputs})
+    const result = await axios.post("http://localhost:8080/auth/signin", {username: usernameInputs, password: passwordInputs})
     if(result.data.token) localStorage.setItem("token", result.data.token)
     setFeedback("Logged in successfuly")
+    document.location.href = "http://localhost:3000/"
     }
     catch(err: any) {
       setFeedback(err.response.data || "Network error. try again")
@@ -63,6 +64,8 @@ const SignIn = () => {
           type={"text"}
           onChange={(e:any) => handleChangeUsername(e)}
           value={usernameInputs}
+          minLength={2}
+          maxLength={8}
         ></Input>
         <Input
           content={"Password "}
@@ -70,6 +73,8 @@ const SignIn = () => {
           type={"password"}
           onChange={(e:any) => handleChangePassword(e)}
           value={passwordInputs}
+          minLength={2}
+          maxLength={8}
         ></Input>
         <SubmitButton onClick={(e:any) => handleSubmit(e)}/>
         <p>
