@@ -28,7 +28,7 @@ const HomePage = () => {
     dispatch(fetchRestaurants()) 
     dispatch(fetchChefs()) 
     dispatch(fetchDishes()) 
-    });
+    },[]);
 
 
   return (
@@ -45,16 +45,16 @@ const HomePage = () => {
       <MobileNav />
       <div className="data-section">
         <p className="sub-title">THE POPULAR RESTAURANTS IN EPICURE : </p>
-        <PopularRestaurant data={restaurants} />
+        <PopularRestaurant data={restaurants}/>
         <Link to={"AllRestaurants"} className="all-restaurants-desktop-btn">
           All Restaurants {">>"}{" "}
         </Link>
         <p className="sub-title">SIGNATURE DISH OF :</p>
-        <SignatureDish dishes={dishes} />
+        <SignatureDish dishes={dishes}/>
         <Icons />
       </div>
       <p className="sub-title">CHEF OF THE WEEK :</p>
-      <ChefItem chef={chefs} restaurants={restaurants} />
+      <ChefItem chef={chefs} restaurants={restaurants}/>
       <About />
       <Footer />
     </Fragment>

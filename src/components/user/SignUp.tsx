@@ -52,7 +52,6 @@ const SignUp = () => {
           "auth-token": token,
         },
       });
-      document.location.href = "http://localhost:3000/";
     } catch (err) {
       localStorage.removeItem("token");
     }

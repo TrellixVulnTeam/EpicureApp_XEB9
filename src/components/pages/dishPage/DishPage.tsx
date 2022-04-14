@@ -5,18 +5,17 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../store/store";
 import { useEffect, useState } from "react";
 import { fetchDishes } from "../../../store/dishDataSlice";
-
+import AddToBag from "./AddToBag";
 const DishPage = (props: { dish: string }) => {
   const dispatch = useAppDispatch();
   const { dishes } = useSelector((state: any) => state.dishes);
 
   useEffect(() => {
     dispatch(fetchDishes());
-  });
+  }, []);
 
   const dishDetails = dishes.filter((item: any) => item.name === props.dish)[0];
 
-  const [quantityNumber, setQuantitynumber] = useState(1);
   const inputsContainer = (content: string) => {
     return (
       <div>
@@ -25,12 +24,23 @@ const DishPage = (props: { dish: string }) => {
       </div>
     );
   };
+
+  const [quantityNumber, setQuantitynumber] = useState(1);
+  const [choosenSide, setChoosenSide]: any = useState();
+
+  const chooseSide = (e: any) => {
+    e.preventDefault();
+    //setChoosenSide(e.target.value)
+    //console.log(e.target)
+  };
+
   const addDish = () => {
     setQuantitynumber(quantityNumber + 1);
   };
   const removeDish = () => {
     setQuantitynumber(quantityNumber - 1);
   };
+
   return (
     <div className="dish">
       <div className="dish-details">
@@ -45,14 +55,14 @@ const DishPage = (props: { dish: string }) => {
             src={dishDetails.icon}
             alt="img"
             className="dish-page-icon-desktop"
-          ></img>{" "}
+          ></img>
           <h3 className="dish-title">{dishDetails.name}</h3>
           <p className="dish-page-description">{dishDetails.description}</p>
           <img
             src={dishDetails.icon}
             alt="img"
             className="dish-page-icon"
-          ></img>{" "}
+          ></img>
           <br></br>
           <div className="wrapper-dish-page">
             <div className="outter"></div>
@@ -68,13 +78,29 @@ const DishPage = (props: { dish: string }) => {
       {inputsContainer("Choose a side")}
       <p>
         {dishDetails.side.map((side: any) => (
-          <Input content={side} type={"radio"} placeholder={""}  onChange={""} value={""} minLength={1} maxLength={2}/>
+          <Input
+            content={side}
+            type={"radio"}
+            placeholder={""}
+            onChange={(e: any) => chooseSide(e)}
+            value={""}
+            minLength={1}
+            maxLength={2}
+          />
         ))}
       </p>
       {inputsContainer("Changes")}
       <p>
         {dishDetails.changes.map((change: any) => (
-          <Input content={change} type={"checkbox"} placeholder={""} onChange={""}  value={""} minLength={1} maxLength={2}/>
+          <Input
+            content={change}
+            type={"checkbox"}
+            placeholder={""}
+            onChange={""}
+            value={""}
+            minLength={1}
+            maxLength={2}
+          />
         ))}
       </p>
       {inputsContainer("Quantity")}
@@ -83,7 +109,14 @@ const DishPage = (props: { dish: string }) => {
         <span className="quantity-number">{quantityNumber}</span>
         <button onClick={addDish}>+</button>
       </div>
-      <button className="add-to-bag-btn">ADD TO BAG</button>
+      <AddToBag
+        dish={[
+          quantityNumber,
+          dishDetails.name,
+          dishDetails.price,
+          dishDetails.mobileImage,
+        ]}
+      />
     </div>
   );
 };

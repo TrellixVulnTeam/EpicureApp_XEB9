@@ -5,7 +5,7 @@ import usersHandler from "../db/services/usersHandler.js";
 const auth = async (req: Request, res: Response, next: NextFunction) => {
 
   const token = req.header("auth-token");
-  if (!token) return res.status(403).send("access denied.");
+  if (!token) return res.status(403).send("access denied- there is no token");
 
   try {
     const tokenSecret: any = process.env.TOKEN_SECRET;
@@ -16,7 +16,7 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
     req.body.user = result;
     return next();
   } catch (err) {
-    return res.status(403).send("access denied");
+    return res.status(403).send("access denied- error");
   }
 };
 

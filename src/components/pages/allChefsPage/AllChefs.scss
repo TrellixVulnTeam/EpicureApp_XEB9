@@ -22,4 +22,8 @@
   .all-chefs-page h2 {
     display: none;
   }
+  .restaurants-grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+  }
 }

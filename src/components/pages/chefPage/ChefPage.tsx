@@ -18,7 +18,7 @@ const ChefPage = () => {
   useEffect(() => {
     dispatch(fetchChefs());
     dispatch(fetchRestaurants());
-  });
+  },[]);
 
   const params: any = useParams();
   const chefDetails = chefs.filter(

@@ -9,9 +9,13 @@ authRouter.post("/signin", newAuthController.signin);
 
 authRouter.post("/signup", newAuthController.signup);
 
-authRouter.get("/", authMiddleware, newAuthController.getUserById);
+authRouter.get("/", newAuthController.getUsers);
 
-authRouter.delete("/", authMiddleware, newAuthController.deleteUser);
+authRouter.get("/:id",authMiddleware, newAuthController.getUserById);
+
+authRouter.get("/:username",authMiddleware, newAuthController.getUserByUsername);
+
+authRouter.delete("/:id", authMiddleware, newAuthController.deleteUser);
 
 
 export default authRouter;

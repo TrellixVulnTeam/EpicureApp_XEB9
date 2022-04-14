@@ -1,5 +1,4 @@
 import clock from "../../../assets/clock-icon.svg";
-import NavLinkTemplate from "../../layout/button/NavLinkTemplate";
 import DishSmallCard from "../../layout/card/DishSmallCard";
 import "./RestaurantPage.scss";
 import DishPage from "../dishPage/DishPage";
@@ -23,7 +22,7 @@ const RestaurantPage = () => {
   useEffect(() => {
     dispatch(fetchRestaurants());
     dispatch(fetchDishes());
-  });
+  },[]);
 
   const openDishCardHandler = (dish: string) => {
     setOpenDishCard(true);

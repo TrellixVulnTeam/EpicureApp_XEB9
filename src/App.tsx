@@ -11,6 +11,7 @@ import SignIn from "./components/user/SignIn";
 import SignUp from "./components/user/SignUp";
 import RestaurantPage from "./components/pages/restaurantPage/RestaurantPage";
  import ChefPage from "./components/pages/chefPage/ChefPage";
+import CartPage from "./components/pages/cartPage/CartPage";
 
 function App() {
   return (
@@ -48,6 +49,9 @@ function App() {
       <Route path="/restaurant/:restaurantName" exact>
         <RestaurantPage />
       </Route>  
+      <Route path="/cart" exact>
+        <CartPage />
+      </Route>
     </BrowserRouter>
   );
 }

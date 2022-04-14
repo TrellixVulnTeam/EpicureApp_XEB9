@@ -68,10 +68,14 @@
 
 .dish-page-icon-desktop {
   display: none;
+  width: 20px;
+  height: 20px;
 }
 
 .dish-page-icon {
   display: inline;
+  width: 20px;
+  height: 20px;
 }
 
 @media screen and (min-width: 400px) {
@@ -93,6 +97,7 @@
   .dish-page-img {
     width: 608px;
     height: 292px;
+    bottom: 0;
   }
   .dish-container {
     z-index: -1;

@@ -42,8 +42,7 @@ const SignIn = () => {
         "auth-token": token
       }
     })
-    document.location.href = "http://localhost:3000/"
-  } catch(err) {
+    } catch(err) {
     localStorage.removeItem("token")
   }
   }

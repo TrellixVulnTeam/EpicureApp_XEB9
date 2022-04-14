@@ -5,9 +5,23 @@ import jwt from "jsonwebtoken";
 
 class authController {
   async getUserById(req: Request, res: Response) {
-    const { _id } = req.body.user;
-    if (!_id) return res.status(400).send("no id.");
-    const result = await usersHandler.getUserByIdHandler(_id);
+    const { id } = req.body.user;
+    if (!id) return res.status(400).send("no id.");
+    const result = await usersHandler.getUserByIdHandler(id);
+    if (result) return res.status(200).json({ result });
+    return res.status(500).send("Internal error.");
+  }
+
+  async getUserByUsername(req: Request, res: Response) {
+    const { username } = req.params;
+    if (!username) return res.status(400).send("no username.");
+    const result = await usersHandler.getUserByUsernameHandler(username);
+    if (result) return res.status(200).json({ result });
+    return res.status(500).send("Internal error.");
+  }
+
+  async getUsers(req: Request, res: Response) {
+    const result = await usersHandler.getUsersHandler();
     if (result) return res.status(200).json({ result });
     return res.status(500).send("Internal error.");
   }

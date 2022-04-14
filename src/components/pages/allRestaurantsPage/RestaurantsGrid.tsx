@@ -12,7 +12,7 @@ const RestaurantsGrid = ({ filter }: any) => {
 
   useEffect(() => {
     dispatch(fetchRestaurants());
-  });
+  },[]);
 
   const passFilter = (item: any) => {
     switch (filter) {
@@ -49,7 +49,7 @@ const RestaurantsGrid = ({ filter }: any) => {
               ></BeigeCard>
             </Link>
           );
-      })}
+       })}
     </div>
   );
 };

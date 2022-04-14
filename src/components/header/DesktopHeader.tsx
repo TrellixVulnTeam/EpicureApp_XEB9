@@ -26,7 +26,9 @@ const DesktopHeader = () => {
         <Link to="/signin">
           <img src={user} alt="user"></img>
         </Link>
-        <img src={bag} alt="bag"></img>
+        <Link to="/cart">
+          <img src={bag} alt="bag"></img>
+        </Link>
       </div>
     </nav>
   );

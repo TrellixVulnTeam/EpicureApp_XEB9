@@ -1,13 +1,18 @@
 import user from "../models/user.js";
 
 class usersHandler {
-  static async getUserByIdHandler(id: string) {
-    const result = await user.findById({ id });
+  static async getUserByIdHandler(id: any) {
+    const result = await user.findById(id);
     return result;
   }
 
-  static async getUserByUsernameHandler(username: string) {
+  static async getUserByUsernameHandler(username: any) {
     const result = await user.findOne({ username });
+    return result;
+  }
+
+  static async getUsersHandler() {
+    const result = await user.find();
     return result;
   }
 
