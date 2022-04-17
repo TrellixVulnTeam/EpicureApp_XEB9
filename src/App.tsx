@@ -25,7 +25,13 @@ function App() {
       <Route path="/restaurants" exact>
         <AllRestaurants />
       </Route>
+      <Route path="/restaurants/:page" exact>
+        <AllRestaurants />
+      </Route>
       <Route path="/chefs" exact>
+        <AllChefs />
+      </Route>
+      <Route path="/chefs/:page" exact>
         <AllChefs />
       </Route>
       <Route path="/PrivacyPolicy" exact>

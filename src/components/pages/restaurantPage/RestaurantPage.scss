@@ -5,10 +5,6 @@ $light-tan: #f7e0b2;
   height: 100%;
 }
 
-.restaurant-page {
-  scroll-behavior: smooth;
-}
-
 .type-meal-link {
   text-decoration: none;
   color: black;
@@ -18,9 +14,7 @@ $light-tan: #f7e0b2;
 }
 
 .type-meal-link:active {
-  font-weight: bold;
-  border-bottom: 2px solid $light-tan;
-  padding-bottom: 25px;
+  color: $light-tan;
 }
 
 .restaurants-container {

@@ -30,8 +30,6 @@ const DishPage = (props: { dish: string }) => {
 
   const chooseSide = (e: any) => {
     e.preventDefault();
-    //setChoosenSide(e.target.value)
-    //console.log(e.target)
   };
 
   const addDish = () => {
@@ -51,12 +49,14 @@ const DishPage = (props: { dish: string }) => {
           srcSet={`${dishDetails.desktopImage} 800w`}
         ></img>
         <div className="data-content">
-          <img
-            src={dishDetails.icon}
-            alt="img"
-            className="dish-page-icon-desktop"
-          ></img>
-          <h3 className="dish-title">{dishDetails.name}</h3>
+          <h3 className="dish-title">
+            <img
+              src={dishDetails.icon}
+              alt="img"
+              className="dish-page-icon-desktop"
+            ></img>
+            {dishDetails.name}
+          </h3>
           <p className="dish-page-description">{dishDetails.description}</p>
           <img
             src={dishDetails.icon}

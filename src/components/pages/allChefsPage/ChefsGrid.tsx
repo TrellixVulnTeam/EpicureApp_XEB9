@@ -2,22 +2,39 @@ import BeigeCard from "../../layout/card/BeigeCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../../store/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchChefs } from "../../../store/chefDataSlice";
 import "./AllChefs.scss";
 
 const ChefsGrid = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+
   const dispatch = useAppDispatch();
   const { chefs } = useSelector((state: any) => state.chefs);
 
   useEffect(() => {
     dispatch(fetchChefs());
-  },[]);
+  }, []);
+
+  const numberOfPages = Math.ceil(chefs.length / 6);
+  let pages = [];
+  for (let page = 1; page <= numberOfPages; page++) {
+    pages.push(
+      <Link
+        key={page}
+        className="page"
+        to={`/chefs/${page}`}
+        onClick={() => setPageNumber(page)}
+      >
+        {page}
+      </Link>
+    );
+  }
 
   return (
-    <div className="restaurants-grid">
-      {chefs.map((item: any) => {
-        return (
+    <div>
+      <div className="restaurants-grid chefs-grid">
+        {chefs.slice(pageNumber * 6 - 6, pageNumber * 6).map((item: any) => (
           <Link to={`/chef/${item.chefName}`} className="to-chef-btn">
             <BeigeCard
               key={item.chefName}
@@ -26,8 +43,9 @@ const ChefsGrid = () => {
               img={item.chefImage}
             ></BeigeCard>
           </Link>
-        );
-      })}
+        ))}
+      </div>
+      <div className="pagination">{pages}</div>
     </div>
   );
 };

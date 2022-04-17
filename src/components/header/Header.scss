@@ -8,9 +8,15 @@ $medium-size: 30px;
 
 .mobile-top-nav {
   display: flex;
+  position: fixed;
   justify-content: space-between;
-  margin: 1px;
+  background-color: white;
   padding-top: 5px;
+  z-index: 1;
+  bottom: 95%;
+  width: 96.3%;
+  height: 40px;
+  margin: 0 !important;
   .right-icons img {
     margin: 5px $small-size;
   }
@@ -18,8 +24,13 @@ $medium-size: 30px;
 
 .desktop-top-nav {
   display: none;
-  height: $medium-size;
-  padding: 0 80px 0 $medium-size;
+  height: 43px;
+  padding: 10px 80px 0 30px;
+  bottom: 91.3%;
+  position: fixed;
+  background-color: white;
+  width:93%;
+  z-index: 1;
   .right-nav img {
     margin: 5px $small-size;
   }
