@@ -117,30 +117,32 @@ const RestaurantPage = ({ filter }: any) => {
           <div className="meal-by-type">
             {mealsTypes.map((type: any) => (
               <Fragment>
+                {" "}
                 <div className="type-container" id={type}>
                   <h2>{type}</h2>
                   <div className="type-line"></div>
-                </div>
-                <div className="restaurants-container">
+                </div>{" "}
+                <div className="dishes-container">
                   {filteredArr.map(
                     (dish: any) =>
                       type === dish.dishType && (
-                        
-                        <button
-                          className="to-dish-btn"
-                          onClick={() => openDishCardHandler(dish.name)}
-                        >
-                          <div className="restaurant-item">
-                            <DishSmallCard
-                              img={dish.mobileImage}
-                              signatureDesktopImage={dish.desktopImage}
-                              title={dish.name}
-                              detail={dish.description}
-                              price={dish.price}
-                              key={dish.key}
-                            ></DishSmallCard>
-                          </div>
-                        </button>
+                        <div>
+                          <button
+                            className="to-dish-btn"
+                            onClick={() => openDishCardHandler(dish.name)}
+                          >
+                            <div className="restaurant-item">
+                              <DishSmallCard
+                                img={dish.mobileImage}
+                                signatureDesktopImage={dish.desktopImage}
+                                title={dish.name}
+                                detail={dish.description}
+                                price={dish.price}
+                                key={dish.key}
+                              ></DishSmallCard>
+                            </div>
+                          </button>
+                        </div>
                       )
                   )}
                 </div>

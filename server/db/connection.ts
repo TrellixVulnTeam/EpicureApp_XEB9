@@ -44,7 +44,7 @@ const dbInit = async () => {
   };
   const chefsImages:any= {
     yossi: "https://i.ibb.co/KXj8k3Z/rectangle.png",
-    ran: "https://i.ibb.co/MgbxM8R/ran-shmueli-im-t-1140x641-1.jpg",
+    ran: "https://i.ibb.co/C73d0FW/sarit-goffen-8240-1.jpg",
     yanir: "https://i.ibb.co/J7bGzS2/maxresdefault.jpg", 
     meir: "https://i.ibb.co/D5nyxLX/mair.jpg",
     yariv: "https://i.ibb.co/gW7bs0m/yariv-malili-tamar-mitzpe-c.jpg",
@@ -74,38 +74,10 @@ const dbInit = async () => {
     chef.insertMany(
       [
         {
-          chefName: chefNames.ran,
-          chefDescription:
-            "Chef Ran Shmueli, one of Israel’s most respected veteran chefs, is an entrepreneur, innovator and creative visionary in Israeli cuisine. Additional culinary ventures by Shmueli include Ma’arava, a venue for large events at Kibbutz Ga’ash, and Shmueli Catering which, for the past 28 years, has specialized in high-end productions and the development of gastronomic concepts.",
-          chefImage: chefsImages.ran,
-          chefOfTheWeek: false,
-        },
-        {
           chefName: chefNames.meir,
           chefDescription:
             "World renowned Chef Meir Adoni, known for his upscale restaurants around the world, has closed his two kosher restaurants in Tel Aviv: Blue Sky & Lumina.",
           chefImage: chefsImages.meir,
-          chefOfTheWeek: false,
-        },
-        {
-          chefName: chefNames.yanir,
-          chefDescription:
-            "The chef, Yanir Green – who is also one of the founders of the two sister restaurants in Sarona and Ramat Hahayal – is Israeli.",
-          chefImage: chefsImages.yanir,
-          chefOfTheWeek: false,
-        },
-        {
-          chefName: chefNames.yossi,
-          chefDescription:
-            "Chef Yossi Shitrit has been living and breathing his culinary dreams for more than two decades, including  running the kitchen in his first restaurant, the fondly-remembered  Violet, located in Moshav Udim.  Shitrit's creativity and culinary acumen  born of long experience are expressed in the every detail of each and every dish.",
-          chefImage: chefsImages.yossi,
-          chefOfTheWeek: true,
-        },
-        {
-          chefName: chefNames.yariv,
-          chefDescription:
-            "Thai House founder, Yariv Malili, was in fact a pioneer when he opened his Asian-inspired hot spot, which most people don’t realize is over two decades old.",
-          chefImage: chefsImages.yariv,
           chefOfTheWeek: false,
         },
         {
@@ -116,24 +88,53 @@ const dbInit = async () => {
           chefOfTheWeek: false,
         },
         {
+          chefName: chefNames.yossi,
+          chefDescription:
+            "Chef Yossi Shitrit has been living and breathing his culinary dreams for more than two decades, including  running the kitchen in his first restaurant, the fondly-remembered  Violet, located in Moshav Udim.  Shitrit's creativity and culinary acumen  born of long experience are expressed in the every detail of each and every dish.",
+          chefImage: chefsImages.yossi,
+          chefOfTheWeek: true,
+        },        
+        {
           chefName: chefNames.shahaf,
           chefDescription:
             "After years of culinary journeys, exploring cultures and searching for the secrets of the Asian cuisine, Shahaf Shabtay takes you on “a journey to Asia” with 5 different cooking techniques.",
           chefImage: chefsImages.shahaf,
           chefOfTheWeek: false,
-        },
+        },        
         {
           chefName: chefNames.yuval,
           chefDescription:
             "After years of work, and one epidemic in the middle that delayed the plans a bit, this evening Chef Yuval Ben Neria officially opens his a, with an investment of NIS 12 million",
           chefImage: chefsImages.yuval,
           chefOfTheWeek: false,
-        },
+        },              
         {
           chefName: chefNames.assaf,
           chefDescription:
             "Assaf Granit is an Israeli-born chef and owner of the Parisian restaurant Shabour. In January, 2021, Granit was awarded a Michelin star for his Shabour restaurant. It is the first Michelin star awarded to an Israeli restaurant in France.",
           chefImage: chefsImages.assaf,
+          chefOfTheWeek: false,
+        },  
+        {
+          chefName: chefNames.yariv,
+          chefDescription:
+            "Thai House founder, Yariv Malili, was in fact a pioneer when he opened his Asian-inspired hot spot, which most people don’t realize is over two decades old.",
+          chefImage: chefsImages.yariv,
+          chefOfTheWeek: false,
+        },        
+        {
+          chefName: chefNames.ran,
+          chefDescription:
+            "Chef Ran Shmueli, one of Israel’s most respected veteran chefs, is an entrepreneur, innovator and creative visionary in Israeli cuisine. Additional culinary ventures by Shmueli include Ma’arava, a venue for large events at Kibbutz Ga’ash, and Shmueli Catering which, for the past 28 years, has specialized in high-end productions and the development of gastronomic concepts.",
+          chefImage: chefsImages.ran,
+          chefOfTheWeek: false,
+        },
+
+        {
+          chefName: chefNames.yanir,
+          chefDescription:
+            "The chef, Yanir Green – who is also one of the founders of the two sister restaurants in Sarona and Ramat Hahayal – is Israeli.",
+          chefImage: chefsImages.yanir,
           chefOfTheWeek: false,
         },
       ]

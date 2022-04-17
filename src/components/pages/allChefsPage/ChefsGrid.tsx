@@ -2,7 +2,7 @@ import BeigeCard from "../../layout/card/BeigeCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../../store/store";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { fetchChefs } from "../../../store/chefDataSlice";
 import "./AllChefs.scss";
 
@@ -32,7 +32,7 @@ const ChefsGrid = () => {
   }
 
   return (
-    <div>
+    <Fragment>
       <div className="restaurants-grid chefs-grid">
         {chefs.slice(pageNumber * 6 - 6, pageNumber * 6).map((item: any) => (
           <Link to={`/chef/${item.chefName}`} className="to-chef-btn">
@@ -46,7 +46,7 @@ const ChefsGrid = () => {
         ))}
       </div>
       <div className="pagination">{pages}</div>
-    </div>
+    </Fragment>
   );
 };
 

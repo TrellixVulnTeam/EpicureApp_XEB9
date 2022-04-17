@@ -1,6 +1,7 @@
 import SignatureItem from "./SignatureItem";
 import "./HomePage.scss";
 import Slider from "react-slick";
+import SlideArrow from "../../layout/arrow/SlideArrow";
 
 const SignatureDish = ({ dishes }: any) => {
   const settings = {
@@ -12,6 +13,12 @@ const SignatureDish = ({ dishes }: any) => {
       { breakpoint: 1300, settings: { slidesToShow: 2 } },
       { breakpoint: 1050, settings: { slidesToShow: 1.39 } },
     ],
+    nextArrow: (
+      <SlideArrow className={""} style={{ undefined }} onClick={undefined} />
+    ),
+    prevArrow: (
+      <SlideArrow className={""} style={{ undefined }} onClick={undefined} />
+    ),
   };
   const smallerArr= dishes.slice(0,3);
   return (

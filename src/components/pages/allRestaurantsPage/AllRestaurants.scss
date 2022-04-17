@@ -46,14 +46,14 @@ $beige: #f9f4ea;
 
 .pagination {
   display: flex;
-  margin-left: 38%;
+  margin-left: 40%;
   .page {
     background-color: $beige;
     color: black;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
     border: 1px solid black;
-    padding: 5px 15px;
+    padding: 2px 10px;
     border-radius: 25px;
     margin: 5px;
   }
@@ -86,6 +86,10 @@ $beige: #f9f4ea;
   }
   .all-restaurants-page h2 {
     display: none;
+  }
+  .page {
+    font-size: 30px;
+    padding: 5px 15px;
   }
   .pagination {
     margin-left: 45%;

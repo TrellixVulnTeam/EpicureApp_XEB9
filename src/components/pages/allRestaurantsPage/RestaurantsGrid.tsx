@@ -29,10 +29,10 @@ const RestaurantsGrid = ({ filter }: any) => {
           return true;
         } else return false;
       case "open":
-        const opening = item.openingHour.split(":")[0] * 1;
-        const closing = item.closingHour.split(":")[0] * 1;
-        const date = new Date();
-        const now = date.getHours();
+        const opening:number = item.openingHour.split(":")[0] * 1;
+        const closing:number = item.closingHour.split(":")[0] * 1;
+        const date= new Date();
+        const now:number = date.getHours();
         if (now >= opening && now <= closing) {
           return true;
         } else return false;
@@ -41,8 +41,8 @@ const RestaurantsGrid = ({ filter }: any) => {
     }
   };
 
-  const filteredArr = restaurants.filter((item: any) => passFilter(item));
-  const numberOfPages = Math.ceil(filteredArr.length / 6);
+  const filteredArr: object[] = restaurants.filter((item: any) => passFilter(item));
+  const numberOfPages:number = Math.ceil(filteredArr.length / 6);
   let pages = [];
   for (let page = 1; page <= numberOfPages; page++) {
     pages.push(
@@ -71,7 +71,7 @@ const RestaurantsGrid = ({ filter }: any) => {
             </Link>
           ))}
       </div>
-      <div>
+      <Fragment>
         {filteredArr.length > 6 && (
           <Fragment>
             <div className="restaurants-grid">
@@ -94,7 +94,7 @@ const RestaurantsGrid = ({ filter }: any) => {
             <div className="pagination">{pages}</div>
           </Fragment>
         )}
-      </div>
+      </Fragment>
     </Fragment>
   );
 };
