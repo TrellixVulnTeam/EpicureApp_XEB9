@@ -22,10 +22,7 @@ function App() {
       <Route path="/" exact>
         <HomePage />
       </Route>
-      <Route path="/restaurants" exact>
-        <AllRestaurants />
-      </Route>
-      <Route path="/restaurants/:page" exact>
+      <Route path="/restaurants/:filter/:page" exact>
         <AllRestaurants />
       </Route>
       <Route path="/chefs" exact>

@@ -8,7 +8,6 @@ const PopularRestaurant = ({ data }:any) => {
     dots: true,
     infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 1,
     responsive: [
       { breakpoint: 1300, settings: { slidesToShow: 2 } },
       { breakpoint: 1050, settings: { slidesToShow: 1.39} },
@@ -25,8 +24,7 @@ const PopularRestaurant = ({ data }:any) => {
       <Slider {...settings}>
         {data &&
           data.map((restaurant:any) => {
-            if(restaurant.isPopular === true)
-            return <PopularItem restaurant={restaurant} key={restaurant} />;
+            return <PopularItem restaurant={restaurant} key={restaurant} />
           })}
       </Slider>
     </div>

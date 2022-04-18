@@ -1,5 +1,4 @@
 import clock from "../../../assets/clock-icon.svg";
-import x from "../../../assets/x.png";
 import DishSmallCard from "../../layout/card/DishSmallCard";
 import "./RestaurantPage.scss";
 import DishPage from "../dishPage/DishPage";
@@ -107,7 +106,7 @@ const RestaurantPage = ({ filter }: any) => {
             {mealsTypes.map((typeName) => (
               <button
                 onClick={() => setFilterType(typeName)}
-                className="type-meal-link"
+                className="type-meal-link" key={typeName}
               >
                 {typeName}
               </button>
@@ -116,20 +115,13 @@ const RestaurantPage = ({ filter }: any) => {
 
           <div className="meal-by-type">
             {mealsTypes.map((type: any) => (
-              <Fragment>
-                {" "}
-                <div className="type-container" id={type}>
-                  <h2>{type}</h2>
-                  <div className="type-line"></div>
-                </div>{" "}
-                <div className="dishes-container">
+                <div className="dishes-container" key={type}>
                   {filteredArr.map(
                     (dish: any) =>
                       type === dish.dishType && (
-                        <div>
                           <button
                             className="to-dish-btn"
-                            onClick={() => openDishCardHandler(dish.name)}
+                            onClick={() => openDishCardHandler(dish.name)} key={dish._id}
                           >
                             <div className="restaurant-item">
                               <DishSmallCard
@@ -142,11 +134,9 @@ const RestaurantPage = ({ filter }: any) => {
                               ></DishSmallCard>
                             </div>
                           </button>
-                        </div>
                       )
                   )}
                 </div>
-              </Fragment>
             ))}
           </div>
           <Footer />

@@ -35,7 +35,7 @@ const ChefsGrid = () => {
     <Fragment>
       <div className="restaurants-grid chefs-grid">
         {chefs.slice(pageNumber * 6 - 6, pageNumber * 6).map((item: any) => (
-          <Link to={`/chef/${item.chefName}`} className="to-chef-btn">
+          <Link to={`/chef/${item.chefName}`} className="to-chef-btn" key={item._id}>
             <BeigeCard
               key={item.chefName}
               title={item.chefName}
